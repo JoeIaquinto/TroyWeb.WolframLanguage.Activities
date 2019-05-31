@@ -34,12 +34,11 @@ namespace WolframLanguage.Activities
             var expression = Expression.Get(context);
             while (client == null || !client.Ready)
             {
-                Console.WriteLine("Waiting for client to be ready...");
+                Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
                 Thread.Sleep(100);
             }
-            return Task.Run(() => {
-                return client.Evaluate<dynamic>(expression);
-            });
+            
+            return Task.Run(() => client.Evaluate<dynamic>(expression), cancellationToken);
         }
 
         protected override void OutputResult(AsyncCodeActivityContext context, dynamic result)

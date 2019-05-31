@@ -69,12 +69,10 @@ namespace WolframLanguage.Activities
 
 			OutputResult(context, task.Result);
 
-			if (!_tokenDisposed)
-			{
-				_cancellationTokenSource?.Dispose();
+			if (_tokenDisposed) return;
+			_cancellationTokenSource?.Dispose();
 
-				_tokenDisposed = true;
-			}
+			_tokenDisposed = true;
 		}
 
 		protected abstract Task<T> ExecuteAsync(AsyncCodeActivityContext context, CancellationToken cancellationToken, Application client);

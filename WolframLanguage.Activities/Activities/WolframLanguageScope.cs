@@ -8,7 +8,6 @@ using System.Threading;
 
 namespace WolframLanguage.Activities
 {
-
     [LocalizedDescription(nameof(Resources.ParentScopeDescription))]
     [LocalizedDisplayName(nameof(Resources.ParentScope))]
     public class WolframLanguageScope : NativeActivity
@@ -23,6 +22,11 @@ namespace WolframLanguage.Activities
         [RequiredArgument]
         public InArgument<string> KernelPath { get; set; }
 
+        [LocalizedDisplayName(nameof(Resources.ParentScopeArgsDisplayName))]
+        [LocalizedDescription(nameof(Resources.ParentScopeArgsDescription))]
+        [RequiredArgument]
+        public InArgument<string[]> KernelArgs { get; set; }
+
         internal static string ParentContainerPropertyTag => "WolframLanguageScope";
 
         #endregion
@@ -32,7 +36,6 @@ namespace WolframLanguage.Activities
 
         public WolframLanguageScope()
         {
-
             Body = new ActivityAction<Application>
             {
                 Argument = new DelegateInArgument<Application>(ParentContainerPropertyTag),
@@ -53,15 +56,18 @@ namespace WolframLanguage.Activities
         protected override void Execute(NativeActivityContext context)
         {
             var kernelPath = KernelPath.Get(context);
-            var application = new Application(kernelPath);
+            var kernelArgs = KernelArgs.Get(context);
+            var application = new Application(kernelPath, kernelArgs);
             Task.Run(() => application.Initialization);
             if (Body != null)
             {
                 while (application == null || !application.Ready)
                 {
-                    Console.WriteLine("Waiting for client to be ready...");
+                    Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
                     Thread.Sleep(100);
                 }
+                
+                context.Properties.Add(@"Application", application);
                 context.ScheduleAction<Application>(Body, application, OnCompleted, OnFaulted);
             }
         }
@@ -73,7 +79,7 @@ namespace WolframLanguage.Activities
 
         private void OnCompleted(NativeActivityContext context, ActivityInstance completedInstance)
         {
-            Console.WriteLine("Parent Scope complete.");
+            Console.WriteLine(Resources.WolframLanguageScope_OnCompleted_Parent_Scope_complete_);
         }
 
         #endregion

@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +51,9 @@
       <Link>Properties\WolframLanguageAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ActivitiesConstraints.cs" />
+    <Compile Include="Activities\EvaluateToImageActivity.cs" />
+    <Compile Include="Activities\EvaluateToOutputFormActivity.cs" />
+    <Compile Include="Activities\EvaluateToInputFormActivity.cs" />
     <Compile Include="Activities\EvaluateActivity.cs" />
     <Compile Include="Activities\WolframLanguageScope.cs" />
     <Compile Include="AsyncTaskCodeActivity.cs" />

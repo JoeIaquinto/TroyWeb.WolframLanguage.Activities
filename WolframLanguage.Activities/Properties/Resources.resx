@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Authentication" xml:space="preserve">
-    <value>Authentication</value>
-    <comment>property group</comment>
-  </data>
   <data name="Input" xml:space="preserve">
     <value>Input</value>
     <comment>property group</comment>
@@ -130,11 +126,11 @@
     <comment>property group</comment>
   </data>
   <data name="ParentScope" xml:space="preserve">
-    <value>Parent Application Scope</value>
+    <value>Wolfram Language Scope</value>
     <comment>display name</comment>
   </data>
   <data name="ParentScopeDescription" xml:space="preserve">
-    <value>The scope that opens a connection to API Client.</value>
+    <value>The scope that opens a connection to a wolfram language kernel.</value>
     <comment>description</comment>
   </data>
   <data name="ParentScopePathDescription" xml:space="preserve">
@@ -172,5 +168,65 @@
   <data name="EvaluateActivityExpressionDisplayName" xml:space="preserve">
     <value>Expression</value>
     <comment>display name</comment>
+  </data>
+  <data name="WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___" xml:space="preserve">
+    <value>Waiting for client to be ready...</value>
+    <comment>Notify that the wolfram language runtime is not ready yet.</comment>
+  </data>
+  <data name="WolframLanguageScope_OnCompleted_Parent_Scope_complete_" xml:space="preserve">
+    <value>Parent Scope complete.</value>
+    <comment>Notify that the parent scope is closing.</comment>
+  </data>
+  <data name="ParentScopeArgsDisplayName" xml:space="preserve">
+    <value>Kernel Arguments</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ParentScopeArgsDescription" xml:space="preserve">
+    <value>Mathematica Kernel Arguments to use when opening kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="EvaluateToImageActivityDisplayName" xml:space="preserve">
+    <value>Evaluate to Image</value>
+  <comment>display name</comment>
+  </data>
+  <data name="EvaluateToImageActivityDescription" xml:space="preserve">
+    <value>Evaluate mathematica expression to a .NET Image object</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="EvaluateToImageActivityWidthDisplayName" xml:space="preserve">
+    <value>Image Width</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateToImageActivityWidthDescription" xml:space="preserve">
+    <value>The width of the exported .NET Image object</value>
+    <comment>description</comment>
+  </data>
+  <data name="EvaluateToImageActivityHeightDisplayName" xml:space="preserve">
+    <value>Image Height</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateToImageActivityHeightDescription" xml:space="preserve">
+    <value>The width of the exported .NET Image object</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="EvaluateToInputFormActivityDisplayName" xml:space="preserve">
+    <value>Evaluate to Input Form</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateToInputFormActivityDescription" xml:space="preserve">
+    <value>Evaluate mathematica expression to an ascii string as it would be typed in the shell.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="EvaluateToOutputFormActivityDisplayName" xml:space="preserve">
+    <value>Evaluate to Output Form</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateToOutputFormActivityDescription" xml:space="preserve">
+    <value>Evaluate mathematica expression to an ascii string as it would be displayed in the shell.</value>
+    <comment>description</comment>
   </data>
 </root>

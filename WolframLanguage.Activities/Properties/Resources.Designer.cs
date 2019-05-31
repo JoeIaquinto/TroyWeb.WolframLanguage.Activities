@@ -19,7 +19,7 @@ namespace WolframLanguage.Activities.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -57,15 +57,6 @@ namespace WolframLanguage.Activities.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Authentication.
-        /// </summary>
-        public static string Authentication {
-            get {
-                return ResourceManager.GetString("Authentication", resourceCulture);
             }
         }
         
@@ -124,6 +115,96 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Evaluate mathematica expression to a .NET Image object.
+        /// </summary>
+        public static string EvaluateToImageActivityDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate to Image.
+        /// </summary>
+        public static string EvaluateToImageActivityDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The width of the exported .NET Image object.
+        /// </summary>
+        public static string EvaluateToImageActivityHeightDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityHeightDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image Height.
+        /// </summary>
+        public static string EvaluateToImageActivityHeightDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityHeightDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The width of the exported .NET Image object.
+        /// </summary>
+        public static string EvaluateToImageActivityWidthDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityWidthDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image Width.
+        /// </summary>
+        public static string EvaluateToImageActivityWidthDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityWidthDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate mathematica expression to an ascii string as it would be typed in the shell..
+        /// </summary>
+        public static string EvaluateToInputFormActivityDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToInputFormActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate to Input Form.
+        /// </summary>
+        public static string EvaluateToInputFormActivityDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToInputFormActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate mathematica expression to an ascii string as it would be displayed in the shell..
+        /// </summary>
+        public static string EvaluateToOutputFormActivityDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToOutputFormActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate to Output Form.
+        /// </summary>
+        public static string EvaluateToOutputFormActivityDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToOutputFormActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input.
         /// </summary>
         public static string Input {
@@ -151,7 +232,7 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parent Application Scope.
+        ///   Looks up a localized string similar to Wolfram Language Scope.
         /// </summary>
         public static string ParentScope {
             get {
@@ -160,7 +241,25 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The scope that opens a connection to API Client..
+        ///   Looks up a localized string similar to Mathematica Kernel Arguments to use when opening kernel..
+        /// </summary>
+        public static string ParentScopeArgsDescription {
+            get {
+                return ResourceManager.GetString("ParentScopeArgsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kernel Arguments.
+        /// </summary>
+        public static string ParentScopeArgsDisplayName {
+            get {
+                return ResourceManager.GetString("ParentScopeArgsDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The scope that opens a connection to a wolfram language kernel..
         /// </summary>
         public static string ParentScopeDescription {
             get {
@@ -183,6 +282,24 @@ namespace WolframLanguage.Activities.Properties {
         public static string ParentScopePathDisplayName {
             get {
                 return ResourceManager.GetString("ParentScopePathDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for client to be ready....
+        /// </summary>
+        public static string WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___ {
+            get {
+                return ResourceManager.GetString("WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent Scope complete..
+        /// </summary>
+        public static string WolframLanguageScope_OnCompleted_Parent_Scope_complete_ {
+            get {
+                return ResourceManager.GetString("WolframLanguageScope_OnCompleted_Parent_Scope_complete_", resourceCulture);
             }
         }
     }

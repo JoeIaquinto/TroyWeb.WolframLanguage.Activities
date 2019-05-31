@@ -18,6 +18,8 @@ namespace WolframLanguage
         private bool DoneInitializing { get; set; } = false;
         private string KernelPath { get; set; }
 
+        private string[] KernelArgs { get; set; }
+
         private Dictionary<Type, Func<dynamic>> @switch;
         #endregion
 
@@ -25,12 +27,12 @@ namespace WolframLanguage
         #region Constructors
 
         // Creates a new Application using the provided credentials
-        public Application(string kernelPath)
+        public Application(string kernelPath, string[] kernelArgs)
         {
             if (string.IsNullOrEmpty(kernelPath)) throw new ArgumentNullException("kernelPath", "A path to the MathKernel.exe is required");
             if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException("kernelPath", "The MathKernel.exe path you specified does not exist.");
             KernelPath = kernelPath;
-            
+            KernelArgs = kernelArgs;
         }
 
         // Allows Initialization (the step right after constructor runs) to be asynchronous
@@ -49,7 +51,11 @@ namespace WolframLanguage
 
             try
             {
-                Kernel = MathLinkFactory.CreateKernelLink($"-linkmode launch -linkname \"{KernelPath}\"");
+                if (KernelArgs.Length == 0) //Optional param KernelArgs default launch settings
+                {
+                    KernelArgs = new[] { "-linkmode", "launch", "-linkname", KernelPath };
+                }
+                Kernel = MathLinkFactory.CreateKernelLink(KernelArgs);
                 Kernel.WaitAndDiscardAnswer();
                 SetupTypeDict();
                 DoneInitializing = true;
@@ -92,10 +98,15 @@ namespace WolframLanguage
 
         #region Action Calls
 
+        public string EvaluateToOutputForm(string expr) => Kernel.EvaluateToOutputForm(expr, 0);
+
+        public string EvaluateToInputForm(string expr) => Kernel.EvaluateToInputForm(expr, 0);
+        public System.Drawing.Image EvaluateToImage(string expr, int width, int height) => Kernel.EvaluateToImage(expr, width, height);
+
+        public Expr PeekExpr() => Kernel.PeekExpr();
+        
         public T Evaluate<T>(string expr, Func<T> callback)
         {
-            Console.WriteLine($"Evaluating: {expr} with Generic callback");
-
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
             return callback();
@@ -103,8 +114,6 @@ namespace WolframLanguage
 
         private T Evaluate<T>(string expr, Func<dynamic> callback)
         {
-            Console.WriteLine($"Evaluating: {expr} with dynamic callback");
-
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
             return callback();
