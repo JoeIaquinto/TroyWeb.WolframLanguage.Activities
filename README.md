@@ -2,9 +2,9 @@
 
 A set of custom UIPath activities to allow integration between RPA workflows and the Wolfram Language Engine using .NET/Link.
 
-For example, when ![this workflow]() is provided the expression ```ExampleData[{"Geometry3D", "SpaceShuttle"}]```, the image below will be produced.
+For example, when ![this workflow](https://github.com/JosephIaquinto/UIPath.AppIntegrations.WolframLanguage/blob/master/Examples/ShuttleFlow.png) is provided the expression ```ExampleData[{"Geometry3D", "SpaceShuttle"}]```, the image below will be produced.
 
-![Shuttle.jpg]()
+![ShuttleExport.jpg](https://github.com/JosephIaquinto/UIPath.AppIntegrations.WolframLanguage/blob/master/Examples/ShuttleExport.jpg)
 
 ## Activities
 
