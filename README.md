@@ -10,6 +10,10 @@ For example, when ![this workflow](https://github.com/JosephIaquinto/UIPath.AppI
 
 This may be a trivial example, but the .NET/Link interface essentially extends the Wolfram Language to .NET, as well as extending .NET to utilize the Wolfram Language system. This project is merely providing an interface from the UIPath RPA workflow system to .NET/Link so that the wolfram language may be used freely from UIPath. Anything you can do in Wolfram Language is now available inside your UIPath Robotic Workflows!
 
+## Installation
+
+After installing the [Wolfram Engine](https://www.wolfram.com/engine/), install the WolframLanguge.Activities NuGet package in UiPath Studio. You must import the Wolfram.NETLink namespace into the workflow you intend to use these activities. Add a parent scope activity to your workflow and provide a path to MathKernel.exe in your Wolfram Engine install location. From there, you may evaluate expressions as if you were using the Wolfram Engine directly. Have fun!
+
 ## Activities
 
 ### Wolfram Language Scope
