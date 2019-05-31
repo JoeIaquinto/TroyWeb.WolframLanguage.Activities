@@ -1,0 +1,1 @@
+ExampleData[{"Geometry3D", "SpaceShuttle"}]
