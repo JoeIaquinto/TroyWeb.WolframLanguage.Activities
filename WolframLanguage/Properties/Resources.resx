@@ -201,4 +201,25 @@
     <value>Server is unreachable. Please make sure it is up and running!</value>
     <comment>Error Message</comment>
   </data>
+  <data name="Application_Evaluate_No_Type" xml:space="preserve">
+    <value>Tried to evaluate a type which does not have a bridge method.</value>
+  </data>
+  <data name="Application_CreateKernel_Creating_Kernel" xml:space="preserve">
+    <value>Creating Kernel</value>
+  </data>
+  <data name="Application_CreateKernel_Kernel_created" xml:space="preserve">
+    <value>Kernel created</value>
+  </data>
+  <data name="Application_Evaluate_Evaluating___0_" xml:space="preserve">
+    <value>Evaluating: {0}</value>
+  </data>
+  <data name="Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_" xml:space="preserve">
+    <value>The MathKernel.exe path you specified does not exist.</value>
+  </data>
+  <data name="Application_Application_A_path_to_the_MathKernel_exe_is_required" xml:space="preserve">
+    <value>A path to the MathKernel.exe is required</value>
+  </data>
+  <data name="Application_PutReference_Must_Enable_Object_References" xml:space="preserve">
+    <value>Must Enable Object References to use PutReference.</value>
+  </data>
 </root>

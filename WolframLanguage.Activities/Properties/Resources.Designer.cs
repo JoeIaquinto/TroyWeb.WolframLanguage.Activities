@@ -61,7 +61,79 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Evaluate activity that goes inside the scope..
+        ///   Looks up a localized string similar to Shuts down a wolfram language kernel..
+        /// </summary>
+        public static string CloseKernelDescription {
+            get {
+                return ResourceManager.GetString("CloseKernelDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close WL Kernel connection.
+        /// </summary>
+        public static string CloseKernelDisplayName {
+            get {
+                return ResourceManager.GetString("CloseKernelDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Should the parent scope dispose of the Kernel on completion?.
+        /// </summary>
+        public static string CloseKernelOnFinishDescription {
+            get {
+                return ResourceManager.GetString("CloseKernelOnFinishDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close Kernel after completion.
+        /// </summary>
+        public static string CloseKernelOnFinishDisplayName {
+            get {
+                return ResourceManager.GetString("CloseKernelOnFinishDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable .NET Object references in the wolfram language kernel. Must be true if importing .NET Objects..
+        /// </summary>
+        public static string EnableObjectReferencesDescription {
+            get {
+                return ResourceManager.GetString("EnableObjectReferencesDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable .NET Object references.
+        /// </summary>
+        public static string EnableObjectReferencesDisplayName {
+            get {
+                return ResourceManager.GetString("EnableObjectReferencesDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End entry of the current packet in the Kernel..
+        /// </summary>
+        public static string EndPacketActivityDescription {
+            get {
+                return ResourceManager.GetString("EndPacketActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Packet.
+        /// </summary>
+        public static string EndPacketActivityDisplayName {
+            get {
+                return ResourceManager.GetString("EndPacketActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate a wolfram language expression from an Expr variable..
         /// </summary>
         public static string EvaluateActivityDescription {
             get {
@@ -81,6 +153,24 @@ namespace WolframLanguage.Activities.Properties {
         /// <summary>
         ///   Looks up a localized string similar to The Wolfram Language expression to evaluate..
         /// </summary>
+        public static string EvaluateActivityExprDescription {
+            get {
+                return ResourceManager.GetString("EvaluateActivityExprDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression as Expr.
+        /// </summary>
+        public static string EvaluateActivityExprDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateActivityExprDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate..
+        /// </summary>
         public static string EvaluateActivityExpressionDescription {
             get {
                 return ResourceManager.GetString("EvaluateActivityExpressionDescription", resourceCulture);
@@ -88,11 +178,29 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expression.
+        ///   Looks up a localized string similar to Expression as Expr.
         /// </summary>
         public static string EvaluateActivityExpressionDisplayName {
             get {
                 return ResourceManager.GetString("EvaluateActivityExpressionDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate..
+        /// </summary>
+        public static string EvaluateActivityExpressionStringDescription {
+            get {
+                return ResourceManager.GetString("EvaluateActivityExpressionStringDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression as String.
+        /// </summary>
+        public static string EvaluateActivityExpressionStringDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateActivityExpressionStringDisplayName", resourceCulture);
             }
         }
         
@@ -129,6 +237,42 @@ namespace WolframLanguage.Activities.Properties {
         public static string EvaluateToImageActivityDisplayName {
             get {
                 return ResourceManager.GetString("EvaluateToImageActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The expression as an Expr object to evaluate to an image..
+        /// </summary>
+        public static string EvaluateToImageActivityExprDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityExprDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression As Expr.
+        /// </summary>
+        public static string EvaluateToImageActivityExprDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityExprDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The expression as a string to evaluate to an image..
+        /// </summary>
+        public static string EvaluateToImageActivityExpressionDescription {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityExpressionDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression As String.
+        /// </summary>
+        public static string EvaluateToImageActivityExpressionDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateToImageActivityExpressionDisplayName", resourceCulture);
             }
         }
         
@@ -205,6 +349,60 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Flush the buffer of data waiting to be sent to the Kernel..
+        /// </summary>
+        public static string FlushActivityDescription {
+            get {
+                return ResourceManager.GetString("FlushActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flush Buffer.
+        /// </summary>
+        public static string FlushActivityDisplayName {
+            get {
+                return ResourceManager.GetString("FlushActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get a value waiting to be retrieved from the Kernel..
+        /// </summary>
+        public static string GetActivityDescription {
+            get {
+                return ResourceManager.GetString("GetActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Value.
+        /// </summary>
+        public static string GetActivityDisplayName {
+            get {
+                return ResourceManager.GetString("GetActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get the current expression from the Kernel..
+        /// </summary>
+        public static string GetExpressionActivityDescription {
+            get {
+                return ResourceManager.GetString("GetExpressionActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Expression.
+        /// </summary>
+        public static string GetExpressionActivityDisplayName {
+            get {
+                return ResourceManager.GetString("GetExpressionActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Input.
         /// </summary>
         public static string Input {
@@ -214,11 +412,83 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Existing Kernel.
+        /// </summary>
+        public static string InputKernel {
+            get {
+                return ResourceManager.GetString("InputKernel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Kernel.
+        /// </summary>
+        public static string InputOpenKernel {
+            get {
+                return ResourceManager.GetString("InputOpenKernel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A wolfram language kernel interface object..
+        /// </summary>
+        public static string KernelOutputDescription {
+            get {
+                return ResourceManager.GetString("KernelOutputDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wolfram Language Kernel.
+        /// </summary>
+        public static string KernelOutputDisplayName {
+            get {
+                return ResourceManager.GetString("KernelOutputDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please provide a value for {0}.
         /// </summary>
         public static string MetadataValidationError {
             get {
                 return ResourceManager.GetString("MetadataValidationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clears the current packet waiting to be written to/ read from the Kernel..
+        /// </summary>
+        public static string NewPacketActivityDescription {
+            get {
+                return ResourceManager.GetString("NewPacketActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Packet.
+        /// </summary>
+        public static string NewPacketActivityDisplayName {
+            get {
+                return ResourceManager.GetString("NewPacketActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starts/Opens a connection to a wolfram language kernel..
+        /// </summary>
+        public static string OpenKernelDescription {
+            get {
+                return ResourceManager.GetString("OpenKernelDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open a Wolfram Language Kernel.
+        /// </summary>
+        public static string OpenKernelDisplayName {
+            get {
+                return ResourceManager.GetString("OpenKernelDisplayName", resourceCulture);
             }
         }
         
@@ -268,6 +538,24 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An already open IKernelLink object. Will be null if closed on finish..
+        /// </summary>
+        public static string ParentScopeKernelDescription {
+            get {
+                return ResourceManager.GetString("ParentScopeKernelDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kernel.
+        /// </summary>
+        public static string ParentScopeKernelDisplayName {
+            get {
+                return ResourceManager.GetString("ParentScopeKernelDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The path to your MathKernel.exe.
         /// </summary>
         public static string ParentScopePathDescription {
@@ -282,6 +570,366 @@ namespace WolframLanguage.Activities.Properties {
         public static string ParentScopePathDisplayName {
             get {
                 return ResourceManager.GetString("ParentScopePathDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sleep duration while waiting for Mathematica to start in milliseconds..
+        /// </summary>
+        public static string ParentScopeStartupSleepDescription {
+            get {
+                return ResourceManager.GetString("ParentScopeStartupSleepDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sleep duration (ms).
+        /// </summary>
+        public static string ParentScopeStartupSleepDisplayName {
+            get {
+                return ResourceManager.GetString("ParentScopeStartupSleepDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creates an Expr from the current expression, but does not drain it off the link..
+        /// </summary>
+        public static string PeekExpressionActivityDescription {
+            get {
+                return ResourceManager.GetString("PeekExpressionActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Peek Expression.
+        /// </summary>
+        public static string PeekExpressionActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PeekExpressionActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put a value to the packet waiting to be written to the Kernel..
+        /// </summary>
+        public static string PutActivityDescription {
+            get {
+                return ResourceManager.GetString("PutActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Value.
+        /// </summary>
+        public static string PutActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value to be written to the waiting packet..
+        /// </summary>
+        public static string PutActivityInDescription {
+            get {
+                return ResourceManager.GetString("PutActivityInDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string PutActivityInDisplayName {
+            get {
+                return ResourceManager.GetString("PutActivityInDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put the number of arguments of the current function to the packet waiting to be written to the Kernel..
+        /// </summary>
+        public static string PutArgCountActivityDescription {
+            get {
+                return ResourceManager.GetString("PutArgCountActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Argument Count.
+        /// </summary>
+        public static string PutArgCountActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutArgCountActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number of arguments of the current function..
+        /// </summary>
+        public static string PutArgCountActivityNumDescription {
+            get {
+                return ResourceManager.GetString("PutArgCountActivityNumDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Argument Count.
+        /// </summary>
+        public static string PutArgCountActivityNumDisplayName {
+            get {
+                return ResourceManager.GetString("PutArgCountActivityNumDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Byte array of data to be written to the packet in the buffer..
+        /// </summary>
+        public static string PutDataActivityDataDescription {
+            get {
+                return ResourceManager.GetString("PutDataActivityDataDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string PutDataActivityDataDisplayName {
+            get {
+                return ResourceManager.GetString("PutDataActivityDataDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put an array of data to the packet waiting to be written to the Kernel..
+        /// </summary>
+        public static string PutDataActivityDescription {
+            get {
+                return ResourceManager.GetString("PutDataActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Data.
+        /// </summary>
+        public static string PutDataActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutDataActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of the data array..
+        /// </summary>
+        public static string PutDataActivitySizeDescription {
+            get {
+                return ResourceManager.GetString("PutDataActivitySizeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string PutDataActivitySizeDisplayName {
+            get {
+                return ResourceManager.GetString("PutDataActivitySizeDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The number of arguments to be added to the packet waiting to be written to the Kernel..
+        /// </summary>
+        public static string PutFuncActivityArgCountDescription {
+            get {
+                return ResourceManager.GetString("PutFuncActivityArgCountDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of Arguments.
+        /// </summary>
+        public static string PutFuncActivityArgCountDisplayName {
+            get {
+                return ResourceManager.GetString("PutFuncActivityArgCountDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put a function with argument count to the packet waiting to be written to the Kernel..
+        /// </summary>
+        public static string PutFuncActivityDescription {
+            get {
+                return ResourceManager.GetString("PutFuncActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Function.
+        /// </summary>
+        public static string PutFuncActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutFuncActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The function name to be added to the packet waiting to be written to the Kernel..
+        /// </summary>
+        public static string PutFuncActivityFuncDescription {
+            get {
+                return ResourceManager.GetString("PutFuncActivityFuncDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Function.
+        /// </summary>
+        public static string PutFuncActivityFuncDisplayName {
+            get {
+                return ResourceManager.GetString("PutFuncActivityFuncDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Puts the type of the next added item to the packet in the buffer..
+        /// </summary>
+        public static string PutNextActivityDescription {
+            get {
+                return ResourceManager.GetString("PutNextActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Next Expression Type.
+        /// </summary>
+        public static string PutNextActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutNextActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExpressionType of the next added item to the packet in the buffer..
+        /// </summary>
+        public static string PutNextActivityTypeDescription {
+            get {
+                return ResourceManager.GetString("PutNextActivityTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression Type.
+        /// </summary>
+        public static string PutNextActivityTypeDisplayName {
+            get {
+                return ResourceManager.GetString("PutNextActivityTypeDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Puts an object by reference into to the packet in the buffer..
+        /// </summary>
+        public static string PutReferenceActivityDescription {
+            get {
+                return ResourceManager.GetString("PutReferenceActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Reference.
+        /// </summary>
+        public static string PutReferenceActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutReferenceActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object by reference to be put into to the packet in the buffer..
+        /// </summary>
+        public static string PutReferenceActivityInDescription {
+            get {
+                return ResourceManager.GetString("PutReferenceActivityInDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object.
+        /// </summary>
+        public static string PutReferenceActivityInDisplayName {
+            get {
+                return ResourceManager.GetString("PutReferenceActivityInDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The type of the object by reference to be put into the packet in the buffer..
+        /// </summary>
+        public static string PutReferenceActivityTypeDescription {
+            get {
+                return ResourceManager.GetString("PutReferenceActivityTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object Type.
+        /// </summary>
+        public static string PutReferenceActivityTypeDisplayName {
+            get {
+                return ResourceManager.GetString("PutReferenceActivityTypeDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Puts a symbol into to the packet in the buffer..
+        /// </summary>
+        public static string PutSymbolActivityDescription {
+            get {
+                return ResourceManager.GetString("PutSymbolActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Symbol.
+        /// </summary>
+        public static string PutSymbolActivityDisplayName {
+            get {
+                return ResourceManager.GetString("PutSymbolActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The symbol to be added into to the packet in the buffer..
+        /// </summary>
+        public static string PutSymbolActivitySymbolDescription {
+            get {
+                return ResourceManager.GetString("PutSymbolActivitySymbolDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbol.
+        /// </summary>
+        public static string PutSymbolActivitySymbolDisplayName {
+            get {
+                return ResourceManager.GetString("PutSymbolActivitySymbolDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waits for a result packet to be returned from the kernel..
+        /// </summary>
+        public static string WaitForPacketActivityDescription {
+            get {
+                return ResourceManager.GetString("WaitForPacketActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wait For the Next Packet.
+        /// </summary>
+        public static string WaitForPacketActivityDisplayName {
+            get {
+                return ResourceManager.GetString("WaitForPacketActivityDisplayName", resourceCulture);
             }
         }
         

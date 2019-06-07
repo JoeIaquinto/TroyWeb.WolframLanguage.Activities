@@ -86,5 +86,59 @@ namespace WolframLanguage.Activities.Design.Properties {
                 return ResourceManager.GetString("DropActivityHere", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate.
+        /// </summary>
+        public static string EvaluateScopeCategory {
+            get {
+                return ResourceManager.GetString("EvaluateScopeCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kernel.
+        /// </summary>
+        public static string KernelScopeCategory {
+            get {
+                return ResourceManager.GetString("KernelScopeCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Data.
+        /// </summary>
+        public static string LowLevelGetDataScopeCategory {
+            get {
+                return ResourceManager.GetString("LowLevelGetDataScopeCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packet Management.
+        /// </summary>
+        public static string LowLevelPacketScopeCategory {
+            get {
+                return ResourceManager.GetString("LowLevelPacketScopeCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put Data.
+        /// </summary>
+        public static string LowLevelPutDataScopeCategory {
+            get {
+                return ResourceManager.GetString("LowLevelPutDataScopeCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low Level.
+        /// </summary>
+        public static string LowLevelScopeCategory {
+            get {
+                return ResourceManager.GetString("LowLevelScopeCategory", resourceCulture);
+            }
+        }
     }
 }

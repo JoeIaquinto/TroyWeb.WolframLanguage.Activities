@@ -121,6 +121,30 @@
     <value>Wolfram Language</value>
     <comment>Category</comment>
   </data>
+  <data name="LowLevelScopeCategory" xml:space="preserve">
+    <value>Low Level</value>
+    <comment>Category</comment>
+  </data>
+  <data name="EvaluateScopeCategory" xml:space="preserve">
+    <value>Evaluate</value>
+    <comment>Category</comment>
+  </data>
+  <data name="KernelScopeCategory" xml:space="preserve">
+    <value>Kernel</value>
+    <comment>Category</comment>
+  </data>
+  <data name="LowLevelPacketScopeCategory" xml:space="preserve">
+    <value>Packet Management</value>
+    <comment>Category</comment>
+  </data>
+  <data name="LowLevelGetDataScopeCategory" xml:space="preserve">
+    <value>Get Data</value>
+    <comment>Category</comment>
+  </data>
+  <data name="LowLevelPutDataScopeCategory" xml:space="preserve">
+    <value>Put Data</value>
+    <comment>Category</comment>
+  </data>
   <data name="DoubleClickToView" xml:space="preserve">
     <value>Double-click to view</value>
     <comment>hint</comment>

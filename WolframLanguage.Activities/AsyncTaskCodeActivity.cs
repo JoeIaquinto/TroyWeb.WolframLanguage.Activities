@@ -4,7 +4,8 @@ using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Wolfram.NETLink;
-namespace WolframLanguage.Activities
+
+namespace WolframLanguage.Activities.Activities
 {
 	/// <summary>
 	///     WolframLanguage AsyncTaskCodeActivity with result <T>

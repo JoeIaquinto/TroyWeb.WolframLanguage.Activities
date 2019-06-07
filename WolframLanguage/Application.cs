@@ -1,9 +1,12 @@
 ﻿using System;
+using System.CodeDom;
 using System.Threading.Tasks;
 using System.IO;
 using Wolfram.NETLink;
 using WolframLanguage.Properties;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Configuration;
 
 namespace WolframLanguage
 {
@@ -14,25 +17,36 @@ namespace WolframLanguage
     {
         #region Properties
 
-        private IKernelLink Kernel { get; set; }
-        private bool DoneInitializing { get; set; } = false;
+        private static IKernelLink Kernel { get; set; }
+        private bool DoneInitializing { get; set; }
         private string KernelPath { get; set; }
 
         private string[] KernelArgs { get; set; }
+        
+        private bool EnableObjectReferences { get; set; }
 
-        private Dictionary<Type, Func<dynamic>> @switch;
+        private static Dictionary<Type, Func<dynamic>> _switch;
+
+        public IKernelLink KernelLink => Kernel;
+        
         #endregion
 
 
         #region Constructors
 
         // Creates a new Application using the provided credentials
-        public Application(string kernelPath, string[] kernelArgs)
+        public Application(string kernelPath, string[] kernelArgs, bool enableObjectReferences)
         {
-            if (string.IsNullOrEmpty(kernelPath)) throw new ArgumentNullException("kernelPath", "A path to the MathKernel.exe is required");
-            if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException("kernelPath", "The MathKernel.exe path you specified does not exist.");
+            if (string.IsNullOrEmpty(kernelPath)) throw new ArgumentNullException(nameof(kernelPath), Resources.Application_Application_A_path_to_the_MathKernel_exe_is_required);
+            if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             KernelPath = kernelPath;
             KernelArgs = kernelArgs;
+            EnableObjectReferences = enableObjectReferences;
+        }
+        
+        public Application(IKernelLink kernel)
+        {
+            Kernel = kernel;
         }
 
         // Allows Initialization (the step right after constructor runs) to be asynchronous
@@ -41,26 +55,36 @@ namespace WolframLanguage
         // Asynchronously creates an authenticated client to make all API calls
         private async Task InitializeAsync()
         {
-            await Task.Run(() => CreateKernel());
+            await Task.Run(CreateKernel);
         }
 
         // Once authentication is complete, creates a reusable HTTP Client
         private void CreateKernel()
         {
-            Console.WriteLine("Creating Kernel");
+            Console.WriteLine(Resources.Application_CreateKernel_Creating_Kernel);
 
             try
             {
-                if (KernelArgs.Length == 0) //Optional param KernelArgs default launch settings
+                if (KernelArgs is null || KernelArgs.Length == 0) //Optional param KernelArgs default launch settings
                 {
-                    KernelArgs = new[] { "-linkmode", "launch", "-linkname", KernelPath };
+                    KernelArgs = new[] {@"-linkmode", @"launch", @"-linkname", KernelPath};
                 }
+                
                 Kernel = MathLinkFactory.CreateKernelLink(KernelArgs);
                 Kernel.WaitAndDiscardAnswer();
                 SetupTypeDict();
-                DoneInitializing = true;
-                Console.WriteLine("Kernel created");
 
+                if (EnableObjectReferences)
+                {
+                    var needNetLinkExpr = new Expr(ExpressionType.Function, @"Needs");
+                    needNetLinkExpr = new Expr(needNetLinkExpr, @"NETLink`");
+                    Kernel.Evaluate(needNetLinkExpr);
+                    Kernel.EnableObjectReferences();
+                    Kernel.Evaluate(@"InstallNET[];");
+                }
+                
+                DoneInitializing = true;
+                Console.WriteLine(Resources.Application_CreateKernel_Kernel_created);
             }
             catch (Exception eq)
             {
@@ -71,37 +95,39 @@ namespace WolframLanguage
         #endregion
 
         #region Info Calls
+
         private void SetupTypeDict()
         {
-            @switch = new Dictionary<Type, Func<dynamic>>
-                {
-                    { typeof(int), () => Kernel.GetInteger() },
-                    { typeof(int[]), () => Kernel.GetInt32Array() },
-                    { typeof(double), () => Kernel.GetDouble() },
-                    { typeof(double[]), () => Kernel.GetDoubleArray() },
-                    { typeof(string), () => Kernel.GetString() },
-                    { typeof(string[]), () => Kernel.GetStringArray() },
-                    { typeof(bool), () => Kernel.GetBoolean() },
-                    { typeof(bool[]), () => Kernel.GetBooleanArray() },
-                    { typeof(byte[]), () => Kernel.GetByteArray() },
-                    { typeof(object[]), () => Kernel.GetComplexArray() },
-                    { typeof(decimal), () => Kernel.GetDecimal() },
-                    { typeof(decimal[]), () => Kernel.GetDecimalArray() },
-                    { typeof(Expr), () => Kernel.GetExpr() },
-                    { typeof(object), () => Kernel.GetObject() },
-                    { typeof(float[]), () => Kernel.GetSingleArray() }
-                };
+            _switch = new Dictionary<Type, Func<dynamic>>
+            {
+                {typeof(int), () => Kernel.GetInteger()},
+                {typeof(int[]), () => Kernel.GetInt32Array()},
+                {typeof(double), () => Kernel.GetDouble()},
+                {typeof(double[]), () => Kernel.GetDoubleArray()},
+                {typeof(string), () => Kernel.GetString()},
+                {typeof(string[]), () => Kernel.GetStringArray()},
+                {typeof(bool), () => Kernel.GetBoolean()},
+                {typeof(bool[]), () => Kernel.GetBooleanArray()},
+                {typeof(byte[]), () => Kernel.GetByteArray()},
+                {typeof(object[]), () => Kernel.GetComplexArray()},
+                {typeof(decimal), () => Kernel.GetDecimal()},
+                {typeof(decimal[]), () => Kernel.GetDecimalArray()},
+                {typeof(Expr), () => Kernel.GetExpr()},
+                {typeof(object), () => Kernel.GetObject()},
+                {typeof(float[]), () => Kernel.GetSingleArray()}
+            };
         }
+        
         #endregion
 
         public bool Ready => Kernel != null && DoneInitializing;
 
         #region Action Calls
 
-        public string EvaluateToOutputForm(string expr) => Kernel.EvaluateToOutputForm(expr, 0);
+        public string EvaluateToOutputForm(dynamic expr) => Kernel.EvaluateToOutputForm(expr, 0);
 
-        public string EvaluateToInputForm(string expr) => Kernel.EvaluateToInputForm(expr, 0);
-        public System.Drawing.Image EvaluateToImage(string expr, int width, int height) => Kernel.EvaluateToImage(expr, width, height);
+        public string EvaluateToInputForm(dynamic expr) => Kernel.EvaluateToInputForm(expr, 0);
+        public System.Drawing.Image EvaluateToImage(dynamic expr, int width, int height) => Kernel.EvaluateToImage(expr, width, height);
 
         public Expr PeekExpr() => Kernel.PeekExpr();
         
@@ -110,6 +136,20 @@ namespace WolframLanguage
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
             return callback();
+        }
+
+        public Expr Evaluate(string expr)
+        {
+            Kernel.Evaluate(expr);
+            Kernel.WaitForAnswer();
+            return Kernel.GetExpr();
+        }
+        
+        public Expr Evaluate(Expr expr)
+        {
+            Kernel.Evaluate(expr);
+            Kernel.WaitForAnswer();
+            return Kernel.GetExpr();
         }
 
         private T Evaluate<T>(string expr, Func<dynamic> callback)
@@ -121,14 +161,72 @@ namespace WolframLanguage
 
         public T Evaluate<T>(string expr)
         {
-            Console.WriteLine($"Evaluating: {expr}");
-            if (@switch.ContainsKey(typeof(T)))
-            {
-                @switch.TryGetValue(typeof(T), out Func<dynamic> callback);
-                return Evaluate<T>(expr, callback);
-            }
-            throw new InvalidOperationException("Tried to evaluate a type which does not have a bridge method.");
+            Console.WriteLine(Resources.Application_Evaluate_Evaluating___0_, expr);
+            if (!_switch.ContainsKey(typeof(T)))
+                throw new InvalidOperationException(Resources.Application_Evaluate_No_Type);
+            _switch.TryGetValue(typeof(T), out var callback);
+            return Evaluate<T>(expr, callback);
         }
+
+        public Expr GetExpr()
+        {
+            return Kernel.GetExpr();
+        }
+
+        public void Put(dynamic e)
+        {
+            if (!EnableObjectReferences && e.GetType() == typeof(object)) throw new Exception(Resources.Application_PutReference_Must_Enable_Object_References);
+            Kernel.Put(e);
+        }
+
+        public void PutReference(object o, Type t = null)
+        {
+            if (!EnableObjectReferences) throw new Exception(Resources.Application_PutReference_Must_Enable_Object_References);
+            if (t is null)
+            {
+                Kernel.PutReference(o);
+            }
+            else
+            {
+                Kernel.PutReference(o, t);   
+            }
+        }
+
+        public void PutFunction(string f, int numArgs)
+        {
+            Kernel.PutFunction(f, numArgs);
+        }
+
+        public void PutFunction(string f, object[] args)
+        {
+            Kernel.PutFunctionAndArgs(f, args);
+        }
+
+        public void EndPacket() => Kernel.EndPacket();
+
+        public T GetValue<T>()
+        {
+            if (!_switch.ContainsKey(typeof(T)))
+                throw new InvalidOperationException(Resources.Application_Evaluate_No_Type);
+            _switch.TryGetValue(typeof(T), out var callback);
+            if (callback is null) throw new InvalidOperationException(Resources.Application_Evaluate_No_Type);
+            return callback();
+        }
+
+        public PacketType WaitForAnswer() => Kernel.WaitForAnswer();
+
+        public void PutNext(ExpressionType t) => Kernel.PutNext(t);
+        public void PutArgCount(int i) => Kernel.PutArgCount(i);
+
+        public void PutSymbol(string s) => Kernel.PutSymbol(s);
+
+        public void PutSize(int i) => Kernel.PutSize(i);
+
+        public void PutData(byte[] b) => Kernel.PutData(b);
+        
+        public void Flush() => Kernel.Flush();
+
+        public void NewPacket() => Kernel.NewPacket();
 
         #endregion
 
@@ -137,27 +235,28 @@ namespace WolframLanguage
         #endregion
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
+        
+        private bool _disposedValue; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (_disposedValue) return;
+            if (disposing)
             {
-                if (disposing)
-                {
-                    Kernel.Close();
-                }
-
-                KernelPath = null;
-
-                disposedValue = true;
+                Kernel.Close();
             }
+
+            KernelPath = null;
+
+            _disposedValue = true;
         }
+        
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
         }
+       
         #endregion
     }
 }

@@ -121,6 +121,14 @@
     <value>Input</value>
     <comment>property group</comment>
   </data>
+  <data name="InputKernel" xml:space="preserve">
+    <value>Existing Kernel</value>
+    <comment>property group</comment>
+  </data>
+  <data name="InputOpenKernel" xml:space="preserve">
+    <value>Open Kernel</value>
+    <comment>property group</comment>
+  </data>
   <data name="Output" xml:space="preserve">
     <value>Output</value>
     <comment>property group</comment>
@@ -133,21 +141,69 @@
     <value>The scope that opens a connection to a wolfram language kernel.</value>
     <comment>description</comment>
   </data>
-  <data name="ParentScopePathDescription" xml:space="preserve">
-    <value>The path to your MathKernel.exe</value>
+  <data name="OpenKernelDisplayName" xml:space="preserve">
+    <value>Open a Wolfram Language Kernel</value>
+  <comment>display name</comment>
+  </data>
+  <data name="OpenKernelDescription" xml:space="preserve">
+    <value>Starts/Opens a connection to a wolfram language kernel.</value>
+    <comment>description</comment>
+  </data>
+  <data name="CloseKernelDisplayName" xml:space="preserve">
+    <value>Close WL Kernel connection</value>
+    <comment>display name</comment>
+  </data>
+  <data name="CloseKernelDescription" xml:space="preserve">
+    <value>Shuts down a wolfram language kernel.</value>
+    <comment>description</comment>
+  </data>
+  <data name="KernelOutputDisplayName" xml:space="preserve">
+    <value>Wolfram Language Kernel</value>
+    <comment>display name</comment>
+  </data>
+  <data name="KernelOutputDescription" xml:space="preserve">
+    <value>A wolfram language kernel interface object.</value>
+    <comment>description</comment>
+  </data>
+  <data name="ParentScopeStartupSleepDisplayName" xml:space="preserve">
+    <value>Sleep duration (ms)</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ParentScopeStartupSleepDescription" xml:space="preserve">
+    <value>Sleep duration while waiting for Mathematica to start in milliseconds.</value>
     <comment>description</comment>
   </data>
   <data name="ParentScopePathDisplayName" xml:space="preserve">
     <value>Kernel Path</value>
     <comment>display name</comment>
   </data>
+  <data name="ParentScopePathDescription" xml:space="preserve">
+    <value>The path to your MathKernel.exe</value>
+    <comment>description</comment>
+  </data>
+  <data name="ParentScopeKernelDisplayName" xml:space="preserve">
+    <value>Kernel</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ParentScopeKernelDescription" xml:space="preserve">
+    <value>An already open IKernelLink object. Will be null if closed on finish.</value>
+    <comment>description</comment>
+  </data>
+  <data name="CloseKernelOnFinishDisplayName" xml:space="preserve">
+    <value>Close Kernel after completion</value>
+    <comment>display name</comment>
+  </data>
+  <data name="CloseKernelOnFinishDescription" xml:space="preserve">
+    <value>Should the parent scope dispose of the Kernel on completion?</value>
+    <comment>description</comment>
+  </data>
   <data name="MetadataValidationError" xml:space="preserve">
     <value>Please provide a value for {0}</value>
     <comment>validation error</comment>
   </data>
   <data name="EvaluateActivityDescription" xml:space="preserve">
-    <value>The Evaluate activity that goes inside the scope.</value>
-    <comment>description</comment>
+    <value>Evaluate a wolfram language expression from an Expr variable.</value>
+  <comment>description</comment>
   </data>
   <data name="EvaluateActivityDisplayName" xml:space="preserve">
     <value>Evaluate Activity</value>
@@ -166,7 +222,23 @@
     <comment>description</comment>
   </data>
   <data name="EvaluateActivityExpressionDisplayName" xml:space="preserve">
-    <value>Expression</value>
+    <value>Expression as Expr</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateActivityExpressionStringDescription" xml:space="preserve">
+    <value>The Wolfram Language expression to evaluate.</value>
+    <comment>description</comment>
+  </data>
+  <data name="EvaluateActivityExpressionStringDisplayName" xml:space="preserve">
+    <value>Expression as String</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateActivityExprDescription" xml:space="preserve">
+    <value>The Wolfram Language expression to evaluate.</value>
+    <comment>description</comment>
+  </data>
+  <data name="EvaluateActivityExprDisplayName" xml:space="preserve">
+    <value>Expression as Expr</value>
     <comment>display name</comment>
   </data>
   <data name="WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___" xml:space="preserve">
@@ -192,6 +264,22 @@
   </data>
   <data name="EvaluateToImageActivityDescription" xml:space="preserve">
     <value>Evaluate mathematica expression to a .NET Image object</value>
+    <comment>description</comment>
+  </data>
+  <data name="EvaluateToImageActivityExpressionDisplayName" xml:space="preserve">
+    <value>Expression As String</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateToImageActivityExpressionDescription" xml:space="preserve">
+    <value>The expression as a string to evaluate to an image.</value>
+    <comment>description</comment>
+  </data>
+  <data name="EvaluateToImageActivityExprDisplayName" xml:space="preserve">
+    <value>Expression As Expr</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EvaluateToImageActivityExprDescription" xml:space="preserve">
+    <value>The expression as an Expr object to evaluate to an image.</value>
     <comment>description</comment>
   </data>
 
@@ -227,6 +315,231 @@
   </data>
   <data name="EvaluateToOutputFormActivityDescription" xml:space="preserve">
     <value>Evaluate mathematica expression to an ascii string as it would be displayed in the shell.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="EnableObjectReferencesDisplayName" xml:space="preserve">
+    <value>Enable .NET Object references</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EnableObjectReferencesDescription" xml:space="preserve">
+    <value>Enable .NET Object references in the wolfram language kernel. Must be true if importing .NET Objects.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PeekExpressionActivityDisplayName" xml:space="preserve">
+    <value>Peek Expression</value>
+  <comment>display name</comment>
+  </data>
+  <data name="PeekExpressionActivityDescription" xml:space="preserve">
+    <value>Creates an Expr from the current expression, but does not drain it off the link.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="GetExpressionActivityDisplayName" xml:space="preserve">
+    <value>Get Expression</value>
+  <comment>display name</comment>
+  </data>
+  <data name="GetExpressionActivityDescription" xml:space="preserve">
+    <value>Get the current expression from the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="EndPacketActivityDisplayName" xml:space="preserve">
+    <value>End Packet</value>
+    <comment>display name</comment>
+  </data>
+  <data name="EndPacketActivityDescription" xml:space="preserve">
+    <value>End entry of the current packet in the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="FlushActivityDisplayName" xml:space="preserve">
+    <value>Flush Buffer</value>
+    <comment>display name</comment>
+  </data>
+  <data name="FlushActivityDescription" xml:space="preserve">
+    <value>Flush the buffer of data waiting to be sent to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="GetActivityDisplayName" xml:space="preserve">
+    <value>Get Value</value>
+    <comment>display name</comment>
+  </data>
+  <data name="GetActivityDescription" xml:space="preserve">
+    <value>Get a value waiting to be retrieved from the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="NewPacketActivityDisplayName" xml:space="preserve">
+    <value>New Packet</value>
+    <comment>display name</comment>
+  </data>
+  <data name="NewPacketActivityDescription" xml:space="preserve">
+    <value>Clears the current packet waiting to be written to/ read from the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutActivityDisplayName" xml:space="preserve">
+    <value>Put Value</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutActivityDescription" xml:space="preserve">
+    <value>Put a value to the packet waiting to be written to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutFuncActivityDisplayName" xml:space="preserve">
+    <value>Put Function</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutFuncActivityDescription" xml:space="preserve">
+    <value>Put a function with argument count to the packet waiting to be written to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutFuncActivityFuncDisplayName" xml:space="preserve">
+    <value>Function</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutFuncActivityFuncDescription" xml:space="preserve">
+    <value>The function name to be added to the packet waiting to be written to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutFuncActivityArgCountDisplayName" xml:space="preserve">
+    <value>Number of Arguments</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutFuncActivityArgCountDescription" xml:space="preserve">
+    <value>The number of arguments to be added to the packet waiting to be written to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutActivityInDisplayName" xml:space="preserve">
+    <value>Value</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutActivityInDescription" xml:space="preserve">
+    <value>Value to be written to the waiting packet.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutArgCountActivityDisplayName" xml:space="preserve">
+    <value>Put Argument Count</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutArgCountActivityDescription" xml:space="preserve">
+    <value>Put the number of arguments of the current function to the packet waiting to be written to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutArgCountActivityNumDisplayName" xml:space="preserve">
+    <value>Argument Count</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutArgCountActivityNumDescription" xml:space="preserve">
+    <value>The number of arguments of the current function.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutDataActivityDisplayName" xml:space="preserve">
+    <value>Put Data</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutDataActivityDescription" xml:space="preserve">
+    <value>Put an array of data to the packet waiting to be written to the Kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutDataActivityDataDisplayName" xml:space="preserve">
+    <value>Data</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutDataActivityDataDescription" xml:space="preserve">
+    <value>Byte array of data to be written to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutDataActivitySizeDisplayName" xml:space="preserve">
+    <value>Size</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutDataActivitySizeDescription" xml:space="preserve">
+    <value>Length of the data array.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutNextActivityDisplayName" xml:space="preserve">
+    <value>Put Next Expression Type</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutNextActivityDescription" xml:space="preserve">
+    <value>Puts the type of the next added item to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutNextActivityTypeDisplayName" xml:space="preserve">
+    <value>Expression Type</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutNextActivityTypeDescription" xml:space="preserve">
+    <value>ExpressionType of the next added item to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="WaitForPacketActivityDisplayName" xml:space="preserve">
+    <value>Wait For the Next Packet</value>
+    <comment>display name</comment>
+  </data>
+  <data name="WaitForPacketActivityDescription" xml:space="preserve">
+    <value>Waits for a result packet to be returned from the kernel.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutSymbolActivityDisplayName" xml:space="preserve">
+    <value>Put Symbol</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutSymbolActivityDescription" xml:space="preserve">
+    <value>Puts a symbol into to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutSymbolActivitySymbolDisplayName" xml:space="preserve">
+    <value>Symbol</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutSymbolActivitySymbolDescription" xml:space="preserve">
+    <value>The symbol to be added into to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutReferenceActivityDisplayName" xml:space="preserve">
+    <value>Put Reference</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutReferenceActivityDescription" xml:space="preserve">
+    <value>Puts an object by reference into to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutReferenceActivityInDisplayName" xml:space="preserve">
+    <value>Object</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutReferenceActivityInDescription" xml:space="preserve">
+    <value>Object by reference to be put into to the packet in the buffer.</value>
+    <comment>description</comment>
+  </data>
+
+  <data name="PutReferenceActivityTypeDisplayName" xml:space="preserve">
+    <value>Object Type</value>
+    <comment>display name</comment>
+  </data>
+  <data name="PutReferenceActivityTypeDescription" xml:space="preserve">
+    <value>The type of the object by reference to be put into the packet in the buffer.</value>
     <comment>description</comment>
   </data>
 </root>

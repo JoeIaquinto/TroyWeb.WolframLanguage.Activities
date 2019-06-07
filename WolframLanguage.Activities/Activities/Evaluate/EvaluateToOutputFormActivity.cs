@@ -1,24 +1,32 @@
-﻿using System;
+using System;
 using System.Activities;
 using System.Threading;
-using System.Threading.Tasks;
+using Wolfram.NETLink;
 using WolframLanguage.Activities.Properties;
 
-namespace WolframLanguage.Activities
+namespace WolframLanguage.Activities.Activities.Evaluate
 {
     [LocalizedDisplayName(nameof(Resources.EvaluateToOutputFormActivityDisplayName))]
     [LocalizedDescription(nameof(Resources.EvaluateToOutputFormActivityDescription))]
     public class EvaluateToOutputFormActivity : NativeActivity<string>
     {
-        [LocalizedDisplayName(nameof(Resources.EvaluateActivityDisplayName))]
-        [LocalizedDescription(nameof(Resources.EvaluateActivityDescription))]
+        [LocalizedDisplayName(nameof(Resources.EvaluateActivityExpressionStringDisplayName))]
+        [LocalizedDescription(nameof(Resources.EvaluateActivityExpressionStringDescription))]
         [LocalizedCategory(nameof(Resources.Input))]
+        [OverloadGroup("ExpressionString")]
         [RequiredArgument]
         public InArgument<string> Expression { get; set; }
+        
+        [LocalizedDisplayName(nameof(Resources.EvaluateActivityExpressionDisplayName))]
+        [LocalizedDescription(nameof(Resources.EvaluateActivityExpressionDescription))]
+        [LocalizedCategory(nameof(Resources.Input))]
+        [OverloadGroup("ExpressionExpr")]
+        [RequiredArgument]
+        public InArgument<Expr> Expr { get; set; }
 
         protected override void Execute(NativeActivityContext context)
         {
-            var expression = Expression.Get(context);
+            var expression = Expression.Get(context) ?? (dynamic) Expr.Get(context);
             var client = (Application) context.Properties.Find(@"Application");
             while (client == null || !client.Ready)
             {

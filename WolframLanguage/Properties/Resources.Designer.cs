@@ -19,7 +19,7 @@ namespace WolframLanguage.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,6 +61,24 @@ namespace WolframLanguage.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A path to the MathKernel.exe is required.
+        /// </summary>
+        internal static string Application_Application_A_path_to_the_MathKernel_exe_is_required {
+            get {
+                return ResourceManager.GetString("Application_Application_A_path_to_the_MathKernel_exe_is_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MathKernel.exe path you specified does not exist..
+        /// </summary>
+        internal static string Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_ {
+            get {
+                return ResourceManager.GetString("Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your URL is invalid. Please check the formatting on it..
         /// </summary>
         internal static string Application_BearerAuthentication_InvalidURLException {
@@ -97,6 +115,15 @@ namespace WolframLanguage.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating Kernel.
+        /// </summary>
+        internal static string Application_CreateKernel_Creating_Kernel {
+            get {
+                return ResourceManager.GetString("Application_CreateKernel_Creating_Kernel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to create Wolfram Language Kernel.
         /// </summary>
         internal static string Application_CreateKernel_FailException {
@@ -106,11 +133,47 @@ namespace WolframLanguage.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kernel created.
+        /// </summary>
+        internal static string Application_CreateKernel_Kernel_created {
+            get {
+                return ResourceManager.GetString("Application_CreateKernel_Kernel_created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluating: {0}.
+        /// </summary>
+        internal static string Application_Evaluate_Evaluating___0_ {
+            get {
+                return ResourceManager.GetString("Application_Evaluate_Evaluating___0_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tried to evaluate a type which does not have a bridge method..
+        /// </summary>
+        internal static string Application_Evaluate_No_Type {
+            get {
+                return ResourceManager.GetString("Application_Evaluate_No_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The selected authentication scheme is unknown. Please choose one of the following: {0}.
         /// </summary>
         internal static string Application_InitializeAsync_UnknownAuthSchemeException {
             get {
                 return ResourceManager.GetString("Application_InitializeAsync_UnknownAuthSchemeException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must Enable Object References to use PutReference..
+        /// </summary>
+        internal static string Application_PutReference_Must_Enable_Object_References {
+            get {
+                return ResourceManager.GetString("Application_PutReference_Must_Enable_Object_References", resourceCulture);
             }
         }
         

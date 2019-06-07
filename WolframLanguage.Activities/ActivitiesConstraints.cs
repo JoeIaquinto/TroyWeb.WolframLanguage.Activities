@@ -36,16 +36,16 @@ namespace WolframLanguage.Activities
                         },
                         Activities =
                         {
-                            new  ForEach<Activity>()
+                            new ForEach<Activity>()
                             {
                                 Values = new GetParentChain
                                 {
                                     ValidationContext = context
                                 },
-                                Body = new ActivityAction<Activity>()
+                                Body = new ActivityAction<Activity>
                                 {
                                     Argument = parent,
-                                    Handler = new If()
+                                    Handler = new If
                                     {
                                         Condition = new InArgument<bool>(ctx => condition(parent.Get(ctx))),
                                         Then = new Assign<bool>
@@ -59,7 +59,7 @@ namespace WolframLanguage.Activities
                             new AssertValidation()
                             {
                                 Assertion = new InArgument<bool>(result),
-                                Message = new InArgument<string> (validationMessage),
+                                Message = new InArgument<string>(validationMessage),
                             }
                         }
                     }

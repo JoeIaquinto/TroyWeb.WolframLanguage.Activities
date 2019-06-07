@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://integrations.uipath.com/docs/integrating-with-uipath</projectUrl>
+    <projectUrl>https://github.com/JosephIaquinto/UIPath.AppIntegrations.WolframLanguage</projectUrl>
     <description>$description$</description>
     <copyright>2019</copyright>
     <tags>UiPath</tags>

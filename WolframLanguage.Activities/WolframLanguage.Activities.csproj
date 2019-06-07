@@ -51,10 +51,26 @@
       <Link>Properties\WolframLanguageAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ActivitiesConstraints.cs" />
-    <Compile Include="Activities\EvaluateToImageActivity.cs" />
-    <Compile Include="Activities\EvaluateToOutputFormActivity.cs" />
-    <Compile Include="Activities\EvaluateToInputFormActivity.cs" />
-    <Compile Include="Activities\EvaluateActivity.cs" />
+    <Compile Include="Activities\Evaluate\EvaluateExprActivity.cs" />
+    <Compile Include="Activities\Evaluate\EvaluateToImageActivity.cs" />
+    <Compile Include="Activities\Evaluate\EvaluateToInputFormActivity.cs" />
+    <Compile Include="Activities\Evaluate\EvaluateToOutputFormActivity.cs" />
+    <Compile Include="Activities\Kernel\CloseKernelActivity.cs" />
+    <Compile Include="Activities\Kernel\OpenKernelActivity.cs" />
+    <Compile Include="Activities\Low Level\Get Data\GetActivity.cs" />
+    <Compile Include="Activities\Low Level\Get Data\GetExpressionActivity.cs" />
+    <Compile Include="Activities\Low Level\Get Data\PeekExpressionActivity.cs" />
+    <Compile Include="Activities\Low Level\Packet Management\EndPacketActivity.cs" />
+    <Compile Include="Activities\Low Level\Packet Management\FlushActivity.cs" />
+    <Compile Include="Activities\Low Level\Packet Management\NewPacketActivity.cs" />
+    <Compile Include="Activities\Low Level\Packet Management\WaitForPacketActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutArgCountActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutDataActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutFunctionActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutNextActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutReferenceActivity.cs" />
+    <Compile Include="Activities\Low Level\Send Data\PutSymbolActivity.cs" />
     <Compile Include="Activities\WolframLanguageScope.cs" />
     <Compile Include="AsyncTaskCodeActivity.cs" />
     <Compile Include="Properties\GlobalAssemblyInfo.cs" />
