@@ -76,18 +76,17 @@ namespace WolframLanguage.Activities.Activities.Kernel
             var kernelArgs = KernelArgs.Get(context);
             var startupSleep = StartupSleep.Get(context);
             var enableObjectReferences = EnableObjectReferences.Get(context);
-            using (var application = new Application(kernelPath, kernelArgs, enableObjectReferences))
+            var application = new Application(kernelPath, kernelArgs, enableObjectReferences);
+            
+            Task.Run(() => application.Initialization);
+            
+            while (!application.Ready)
             {
-                Task.Run(() => application.Initialization);
-                
-                while (!application.Ready)
-                {
-                    Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
-                    Thread.Sleep(startupSleep);
-                }
-                
-                Kernel.Set(context, application.KernelLink);
+                Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
+                Thread.Sleep(startupSleep);
             }
+            
+            Kernel.Set(context, application.KernelLink);
         }
 
         private static void OnFaulted(NativeActivityFaultContext faultContext, Exception propagatedException, ActivityInstance propagatedFrom)

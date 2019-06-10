@@ -17,7 +17,7 @@ namespace WolframLanguage
     {
         #region Properties
 
-        private static IKernelLink Kernel { get; set; }
+        private IKernelLink Kernel { get; set; }
         private bool DoneInitializing { get; set; }
         private string KernelPath { get; set; }
 
@@ -47,22 +47,19 @@ namespace WolframLanguage
         public Application(IKernelLink kernel)
         {
             Kernel = kernel;
+            DoneInitializing = true;
         }
 
         // Allows Initialization (the step right after constructor runs) to be asynchronous
         public Task Initialization => InitializeAsync();
 
-        // Asynchronously creates an authenticated client to make all API calls
         private async Task InitializeAsync()
         {
             await Task.Run(CreateKernel);
         }
-
-        // Once authentication is complete, creates a reusable HTTP Client
+        
         private void CreateKernel()
         {
-            Console.WriteLine(Resources.Application_CreateKernel_Creating_Kernel);
-
             try
             {
                 if (KernelArgs is null || KernelArgs.Length == 0) //Optional param KernelArgs default launch settings
@@ -70,17 +67,23 @@ namespace WolframLanguage
                     KernelArgs = new[] {@"-linkmode", @"launch", @"-linkname", KernelPath};
                 }
                 
+                Console.WriteLine(Resources.Application_CreateKernel_Creating_Kernel);
                 Kernel = MathLinkFactory.CreateKernelLink(KernelArgs);
                 Kernel.WaitAndDiscardAnswer();
+                
                 SetupTypeDict();
 
                 if (EnableObjectReferences)
                 {
+                    Console.WriteLine(Resources.Application_CreateKernel_Enabling_Object_References_);
                     var needNetLinkExpr = new Expr(ExpressionType.Function, @"Needs");
                     needNetLinkExpr = new Expr(needNetLinkExpr, @"NETLink`");
                     Kernel.Evaluate(needNetLinkExpr);
+                    Kernel.WaitAndDiscardAnswer();
                     Kernel.EnableObjectReferences();
+                    Kernel.WaitAndDiscardAnswer();
                     Kernel.Evaluate(@"InstallNET[];");
+                    Kernel.WaitAndDiscardAnswer();
                 }
                 
                 DoneInitializing = true;
@@ -243,6 +246,7 @@ namespace WolframLanguage
             if (_disposedValue) return;
             if (disposing)
             {
+                Console.WriteLine(Resources.Application_Dispose_Closing_Kernel_now_);
                 Kernel.Close();
             }
 

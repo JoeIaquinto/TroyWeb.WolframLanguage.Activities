@@ -222,4 +222,10 @@
   <data name="Application_PutReference_Must_Enable_Object_References" xml:space="preserve">
     <value>Must Enable Object References to use PutReference.</value>
   </data>
+  <data name="Application_Dispose_Closing_Kernel_now_" xml:space="preserve">
+    <value>Closing Kernel now.</value>
+  </data>
+  <data name="Application_CreateKernel_Enabling_Object_References_" xml:space="preserve">
+    <value>Enabling Object References.</value>
+  </data>
 </root>

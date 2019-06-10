@@ -113,18 +113,18 @@ namespace WolframLanguage.Activities.Activities
                 var kernelArgs = KernelArgs.Get(context);
                 var startupSleep = StartupSleep.Get(context);
                 var enableObjectReferences = EnableObjectReferences.Get(context);
-                using (_kernel = new Application(kernelPath, kernelArgs, enableObjectReferences))
+                _kernel = new Application(kernelPath, kernelArgs, enableObjectReferences);
+                
+                Task.Run(() => _kernel.Initialization);
+                if (Body == null) return;
+                while (!_kernel.Ready)
                 {
-                    Task.Run(() => _kernel.Initialization);
-                    if (Body == null) return;
-                    while (!_kernel.Ready)
-                    {
-                        Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
-                        Thread.Sleep(startupSleep);
-                    }
+                    Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
+                    Thread.Sleep(startupSleep);
                 }
             }
             
+            Kernel.Set(context, _kernel.KernelLink);
             context.Properties.Add(@"Application", _kernel);
             context.ScheduleAction(Body, _kernel,
                 OnCompleted, OnFaulted);
@@ -138,15 +138,6 @@ namespace WolframLanguage.Activities.Activities
         private void OnCompleted(NativeActivityContext context, ActivityInstance completedInstance)
         {
             Console.WriteLine(Resources.WolframLanguageScope_OnCompleted_Parent_Scope_complete_);
-            if (CloseKernelOnFinish.Get(context))
-            {
-                _kernel.Dispose();
-                Kernel.Set(context, null);
-            }
-            else
-            {
-                Kernel.Set(context, _kernel.KernelLink);
-            }
         }
 
         #endregion

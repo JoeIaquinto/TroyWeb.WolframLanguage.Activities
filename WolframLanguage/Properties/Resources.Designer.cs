@@ -124,6 +124,15 @@ namespace WolframLanguage.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enabling Object References..
+        /// </summary>
+        internal static string Application_CreateKernel_Enabling_Object_References_ {
+            get {
+                return ResourceManager.GetString("Application_CreateKernel_Enabling_Object_References_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to create Wolfram Language Kernel.
         /// </summary>
         internal static string Application_CreateKernel_FailException {
@@ -138,6 +147,15 @@ namespace WolframLanguage.Properties {
         internal static string Application_CreateKernel_Kernel_created {
             get {
                 return ResourceManager.GetString("Application_CreateKernel_Kernel_created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closing Kernel now..
+        /// </summary>
+        internal static string Application_Dispose_Closing_Kernel_now_ {
+            get {
+                return ResourceManager.GetString("Application_Dispose_Closing_Kernel_now_", resourceCulture);
             }
         }
         
