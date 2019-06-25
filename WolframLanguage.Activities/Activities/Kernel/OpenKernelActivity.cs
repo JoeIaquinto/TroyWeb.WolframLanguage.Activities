@@ -17,7 +17,6 @@ namespace WolframLanguage.Activities.Activities.Kernel
         [LocalizedDisplayName(nameof(Resources.ParentScopePathDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopePathDescription))]
         [LocalizedCategory(nameof(Resources.Input))]
-        [RequiredArgument]
         public InArgument<string> KernelPath { get; set; }
 
         [LocalizedDisplayName(nameof(Resources.ParentScopeArgsDisplayName))]
@@ -35,7 +34,7 @@ namespace WolframLanguage.Activities.Activities.Kernel
         [LocalizedDisplayName(nameof(Resources.EnableObjectReferencesDisplayName))]
         [LocalizedDescription(nameof(Resources.EnableObjectReferencesDescription))]
         [LocalizedCategory(nameof(Resources.Input))]
-        [RequiredArgument]
+        [DefaultValue(false)]
         public InArgument<bool> EnableObjectReferences { get; set; }
 
         [LocalizedDisplayName(nameof(Resources.KernelOutputDisplayName))]

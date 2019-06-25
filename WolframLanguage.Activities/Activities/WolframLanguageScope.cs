@@ -30,7 +30,6 @@ namespace WolframLanguage.Activities.Activities
         
         [LocalizedDisplayName(nameof(Resources.ParentScopePathDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopePathDescription))]
-        [RequiredArgument]
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
         [OverloadGroup("NewKernel")]
         public InArgument<string> KernelPath { get; set; }
@@ -44,7 +43,7 @@ namespace WolframLanguage.Activities.Activities
         
         [LocalizedDisplayName(nameof(Resources.ParentScopeStartupSleepDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopeStartupSleepDescription))]
-        [DefaultValue(typeof(int),@"100")]
+        [DefaultValue(typeof(int), @"100")]
         [OverloadGroup("NewKernel")]
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
         [DependsOn(nameof(KernelPath))]
@@ -55,13 +54,13 @@ namespace WolframLanguage.Activities.Activities
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
         [OverloadGroup("NewKernel")]
         [DependsOn(nameof(KernelPath))]
-        [RequiredArgument]
+        [DefaultValue(false)]
         public InArgument<bool> EnableObjectReferences { get; set; }
         
         [LocalizedDisplayName(nameof(Resources.CloseKernelOnFinishDisplayName))]
         [LocalizedDescription(nameof(Resources.CloseKernelOnFinishDescription))]
         [LocalizedCategory(nameof(Resources.Input))]
-        [RequiredArgument]
+        [DefaultValue(true)]
         public InArgument<bool> CloseKernelOnFinish { get; set; }
 
         internal static string ParentContainerPropertyTag => "WolframLanguageScope";

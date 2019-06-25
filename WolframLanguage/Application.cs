@@ -1,12 +1,10 @@
 ﻿using System;
-using System.CodeDom;
 using System.Threading.Tasks;
 using System.IO;
 using Wolfram.NETLink;
 using WolframLanguage.Properties;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Configuration;
+using Microsoft.Win32;
 
 namespace WolframLanguage
 {
@@ -37,7 +35,7 @@ namespace WolframLanguage
         // Creates a new Application using the provided credentials
         public Application(string kernelPath, string[] kernelArgs, bool enableObjectReferences)
         {
-            if (string.IsNullOrEmpty(kernelPath)) throw new ArgumentNullException(nameof(kernelPath), Resources.Application_Application_A_path_to_the_MathKernel_exe_is_required);
+            if (string.IsNullOrEmpty(kernelPath)) kernelPath = GetInstallLocation();
             if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             KernelPath = kernelPath;
             KernelArgs = kernelArgs;
@@ -84,6 +82,10 @@ namespace WolframLanguage
                     Kernel.WaitAndDiscardAnswer();
                     Kernel.Evaluate(@"InstallNET[];");
                     Kernel.WaitAndDiscardAnswer();
+                    if (Kernel.LastError != null)
+                    {
+                        throw Kernel.LastError;
+                    }
                 }
                 
                 DoneInitializing = true;
@@ -120,17 +122,71 @@ namespace WolframLanguage
                 {typeof(float[]), () => Kernel.GetSingleArray()}
             };
         }
+
+        private string GetInstallLocation()
+        {
+            const string registryKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+            using (var key = Registry.LocalMachine.OpenSubKey(registryKey))
+            {
+                if (key == null) throw new NotSupportedException();
+                foreach (var subkeyName in key.GetSubKeyNames())
+                {
+                    using (var subkey = key.OpenSubKey(subkeyName))
+                    {
+                        var name = subkey?.GetValue("DisplayName");
+
+                        if (name == null || !name.ToString().Contains(@"Wolfram Engine") &&
+                            !name.ToString().Contains(@"Mathematica")) continue;
+                        return $@"{subkey.GetValue(@"InstallLocation")}MathKernel.exe";
+                    }
+                }
+            }
+            
+            throw new NotSupportedException();
+        }
         
         #endregion
 
         public bool Ready => Kernel != null && DoneInitializing;
+        
+        public Exception CheckError => Kernel.Error != 0 ? new ApplicationException(Kernel.ErrorMessage) : null;
+
+        public Exception LastError => Kernel.LastError;
 
         #region Action Calls
 
-        public string EvaluateToOutputForm(dynamic expr) => Kernel.EvaluateToOutputForm(expr, 0);
+        public string EvaluateToOutputForm(dynamic expr)
+        {
+            var result = Kernel.EvaluateToOutputForm(expr, 0);
+            if (result is null && Kernel.LastError != null)
+            {
+                throw Kernel.LastError;
+            }
 
-        public string EvaluateToInputForm(dynamic expr) => Kernel.EvaluateToInputForm(expr, 0);
-        public System.Drawing.Image EvaluateToImage(dynamic expr, int width, int height) => Kernel.EvaluateToImage(expr, width, height);
+            return result;
+        }
+
+        public string EvaluateToInputForm(dynamic expr)
+        {
+            var result = Kernel.EvaluateToInputForm(expr, 0);
+            if (result is null && Kernel.LastError != null)
+            {
+                throw Kernel.LastError;
+            }
+
+            return result;
+        }
+
+        public System.Drawing.Image EvaluateToImage(dynamic expr, int width, int height)
+        {
+            var result = Kernel.EvaluateToImage(expr, width, height);
+            if (result is null && Kernel.LastError != null)
+            {
+                throw Kernel.LastError;
+            }
+
+            return result;
+        }
 
         public Expr PeekExpr() => Kernel.PeekExpr();
         
@@ -138,13 +194,23 @@ namespace WolframLanguage
         {
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
+            IfCheckErrorThrow();
             return callback();
+        }
+
+        private void IfCheckErrorThrow()
+        {
+            if (CheckError != null)
+            {
+                throw CheckError;
+            }
         }
 
         public Expr Evaluate(string expr)
         {
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
+            IfCheckErrorThrow();
             return Kernel.GetExpr();
         }
         
@@ -152,6 +218,7 @@ namespace WolframLanguage
         {
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
+            IfCheckErrorThrow();
             return Kernel.GetExpr();
         }
 
@@ -159,6 +226,7 @@ namespace WolframLanguage
         {
             Kernel.Evaluate(expr);
             Kernel.WaitForAnswer();
+            IfCheckErrorThrow();
             return callback();
         }
 
@@ -173,6 +241,7 @@ namespace WolframLanguage
 
         public Expr GetExpr()
         {
+            IfCheckErrorThrow();
             return Kernel.GetExpr();
         }
 
