@@ -35,7 +35,7 @@ namespace WolframLanguage
         // Creates a new Application using the provided credentials
         public Application(string kernelPath, string[] kernelArgs, bool enableObjectReferences)
         {
-            if (string.IsNullOrEmpty(kernelPath)) kernelPath = GetInstallLocation();
+            if (string.IsNullOrEmpty(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             KernelPath = kernelPath;
             KernelArgs = kernelArgs;
@@ -123,28 +123,6 @@ namespace WolframLanguage
             };
         }
 
-        private string GetInstallLocation()
-        {
-            const string registryKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
-            using (var key = Registry.LocalMachine.OpenSubKey(registryKey))
-            {
-                if (key == null) throw new NotSupportedException();
-                foreach (var subkeyName in key.GetSubKeyNames())
-                {
-                    using (var subkey = key.OpenSubKey(subkeyName))
-                    {
-                        var name = subkey?.GetValue("DisplayName");
-
-                        if (name == null || !name.ToString().Contains(@"Wolfram Engine") &&
-                            !name.ToString().Contains(@"Mathematica")) continue;
-                        return $@"{subkey.GetValue(@"InstallLocation")}MathKernel.exe";
-                    }
-                }
-            }
-            
-            throw new NotSupportedException();
-        }
-        
         #endregion
 
         public bool Ready => Kernel != null && DoneInitializing;

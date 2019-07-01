@@ -31,12 +31,14 @@ namespace WolframLanguage.Activities.Activities
         [LocalizedDisplayName(nameof(Resources.ParentScopePathDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopePathDescription))]
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
+        [RequiredArgument]
         [OverloadGroup("NewKernel")]
         public InArgument<string> KernelPath { get; set; }
 
         [LocalizedDisplayName(nameof(Resources.ParentScopeArgsDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopeArgsDescription))]
         [DependsOn(nameof(KernelPath))]
+        [RequiredArgument]
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
         [OverloadGroup("NewKernel")]
         public InArgument<string[]> KernelArgs { get; set; }
