@@ -1,4 +1,4 @@
-# UIPath.AppIntegrations.WolframLanguage
+# TroyWeb.WolframLanguage.Activities
 
 A set of custom UIPath activities to allow integration between RPA workflows and the Wolfram Language Engine using .NET/Link.
 
