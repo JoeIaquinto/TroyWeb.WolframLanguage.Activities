@@ -1,0 +1,29 @@
+{
+  "name": "WolframEvalProcess",
+  "description": "Agent Process Improvement",
+  "main": "Main.xaml",
+  "dependencies": {
+    "TroyWeb.WolframLanguage.Activities": "[2.2.0]",
+    "UiPath.Excel.Activities": "[2.6.1]",
+    "UiPath.Mail.Activities": "[1.5.0]",
+    "UiPath.System.Activities": "[19.5.0]",
+    "UiPath.UIAutomation.Activities": "[19.5.0]"
+  },
+  "schemaVersion": "3.2",
+  "studioVersion": "19.5.0.60",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ]
+  },
+  "projectType": "Workflow",
+  "libraryOptions": {
+    "includeOriginalXaml": false,
+    "privateWorkflows": []
+  },
+  "webServices": []
+}

@@ -1,0 +1,154 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DecayGraph" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:swf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:waa="clr-namespace:WolframLanguage.Activities.Activities;assembly=WolframLanguage.Activities" xmlns:waae="clr-namespace:WolframLanguage.Activities.Activities.Evaluate;assembly=WolframLanguage.Activities" xmlns:wn="clr-namespace:Wolfram.NETLink;assembly=Wolfram.NETLink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Expr" Type="InOutArgument(ui:GenericValue)" />
+    <x:Property Name="ExprResult" Type="OutArgument(x:String)" />
+    <x:Property Name="Kernel" Type="InOutArgument(wn:IKernelLink)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>623,1892</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Orchestrator.Client</x:String>
+      <x:String>UiPath.Orchestrator.Client.Models</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>WolframLanguage</x:String>
+      <x:String>WolframLanguage.Activities.Activities</x:String>
+      <x:String>WolframLanguage.Activities.Activities.Evaluate</x:String>
+      <x:String>Wolfram.NETLink</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WolframLanguage</AssemblyReference>
+      <AssemblyReference>WolframLanguage.Activities</AssemblyReference>
+      <AssemblyReference>Wolfram.NETLink</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="583,1812" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="DecayGraphWL" />
+      <Variable x:TypeArguments="x:String" Name="DecayGraphWL2" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="ImgH" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="ImgW" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="561,92" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Element:" Options="[{&quot;&quot;}]" Title="Get Decay Graph">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="ui:GenericValue">[Expr]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="561,92" sap2010:WorkflowViewState.IdRef="InputDialog_9" IsPassword="False" Label="Height (px):" Options="[{&quot;&quot;}]" Title="Image Height">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="ui:GenericValue">[ImgH]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="561,92" sap2010:WorkflowViewState.IdRef="InputDialog_10" IsPassword="False" Label="Width (px):" Options="[{&quot;&quot;}]" Title="Image Width">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="ui:GenericValue">[ImgW]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <ui:ReadTextFile Content="[DecayGraphWL]" DisplayName="Read Text File" FileName="DecayGraph.wl" sap:VirtualizedContainerService.HintSize="561,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+    <ui:ReadTextFile Content="[DecayGraphWL2]" DisplayName="Read Text File" FileName="DecayGraph2.wl" sap:VirtualizedContainerService.HintSize="561,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
+    <If Condition="[Not String.IsNullOrWhiteSpace(Expr)]" sap:VirtualizedContainerService.HintSize="561,1094" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="436,946" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="SaveLoc" />
+            <Variable x:TypeArguments="sd:Image" Name="DecayGraphImage" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="414,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[SaveLoc]" />
+          <waa:WolframLanguageScope KernelPath="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,455" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_5" Kernel="[Kernel]" EnableObjectReferences="{x:Null}" KernelArgs="{x:Null}" StartupSleep="{x:Null}">
+            <waa:WolframLanguageScope.Body>
+              <ActivityAction x:TypeArguments="w:Application">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="w:Application" Name="WolframLanguageScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,369" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <waae:EvaluateToOutputFormActivity Expr="{x:Null}" DisplayName="Evaluate to Output Form" Expression="[DecayGraphWL]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateToOutputFormActivity_3" Result="[ExprResult]" />
+                  <waae:EvaluateExprActivity Expr="{x:Null}" Result="{x:Null}" DisplayName="Evaluate Activity" Expression="[&quot;verts = ReachableNuclides[{Entity[&quot; + chr(34) + &quot;Isotope&quot; + chr(34) + &quot;, &quot; + chr(34) + Expr.ToString()+ chr(34) + &quot;]}];&quot;]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateExprActivity_1" />
+                  <ui:Replace DisplayName="Replace ImageSize with Configured width" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="Replace_1" Input="[DecayGraphWL2]" IsBuilderTabModified="False" Pattern="@@WIDTH@@" RegexOption="IgnoreCase, Compiled" Replacement="[ImgW.ToString()]" Result="[DecayGraphWL2]" />
+                  <waae:EvaluateToImageActivity Expr="{x:Null}" DisplayName="Evaluate to Image" Expression="[DecayGraphWL2]" Height="[ImgH]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateToImageActivity_3" Result="[DecayGraphImage]" Width="[ImgW]" />
+                </Sequence>
+              </ActivityAction>
+            </waa:WolframLanguageScope.Body>
+          </waa:WolframLanguageScope>
+          <ui:SaveImage DisplayName="Save Image" FileName="[SaveLoc + &quot;/WolframImage.jpg&quot;]" sap:VirtualizedContainerService.HintSize="414,92" sap2010:WorkflowViewState.IdRef="SaveImage_3" Image="[DecayGraphImage]" />
+          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="414,133" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="SetImage" TargetType="swf:Clipboard">
+            <InArgument x:TypeArguments="sd:Image">[DecayGraphImage]</InArgument>
+          </InvokeMethod>
+        </Sequence>
+      </If.Then>
+    </If>
+  </Sequence>
+</Activity>

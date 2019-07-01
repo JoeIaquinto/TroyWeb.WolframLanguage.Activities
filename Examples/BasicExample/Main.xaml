@@ -1,0 +1,91 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="476,788" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uif="clr-namespace:UiPathTeam.Image.Filters;assembly=ImageActivities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:wa="clr-namespace:WolframLanguage.Activities;assembly=WolframLanguage.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>WolframLanguage</x:String>
+      <x:String>WolframLanguage.Activities</x:String>
+      <x:String>WolframLanguage.Activities.Design.Properties</x:String>
+      <x:String>WolframLanguage.Activities.Design</x:String>
+      <x:String>Wolfram.NETLink</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>WolframLanguage</AssemblyReference>
+      <AssemblyReference>WolframLanguage.Activities</AssemblyReference>
+      <AssemblyReference>WolframLanguage.Activities.Design</AssemblyReference>
+      <AssemblyReference>Wolfram.NETLink</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="436,668" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="WLCode" />
+      <Variable x:TypeArguments="x:String" Default="C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.0\\MathKernel.exe" Name="KernelPath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadTextFile Content="[WLCode]" DisplayName="Read Text File" FileName="MyWLProgram.wl" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+    <wa:WolframLanguageScope DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,445" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" KernelArgs="[{}]" KernelPath="[KernelPath]">
+      <wa:WolframLanguageScope.Body>
+        <ActivityAction x:TypeArguments="w:Application">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="w:Application" Name="WolframLanguageScope" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="336,359" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:Image" Name="Shuttle" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <wa:EvaluateToImageActivity DisplayName="Evaluate to Image" Expression="[WLCode]" Height="500" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateToImageActivity_1" Result="[Shuttle]" Width="500" />
+            <uif:ImageToGrayscale ImagePath="{x:Null}" ResultImage="{x:Null}" DisplayName="Image to grayscale" sap:VirtualizedContainerService.HintSize="314,173" sap2010:WorkflowViewState.IdRef="ImageToGrayscale_1" InputImage="[Shuttle]" ResultImagePath="ShuttleExport.jpg" />
+          </Sequence>
+        </ActivityAction>
+      </wa:WolframLanguageScope.Body>
+    </wa:WolframLanguageScope>
+  </Sequence>
+</Activity>
