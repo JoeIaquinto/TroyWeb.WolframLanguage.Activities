@@ -80,7 +80,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="583,958" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence DisplayName="Prompt &amp; Evaluate String" sap:VirtualizedContainerService.HintSize="583,958" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -92,15 +92,15 @@
         <OutArgument x:TypeArguments="ui:GenericValue">[Expr]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <If Condition="[Not String.IsNullOrWhiteSpace(Expr)]" sap:VirtualizedContainerService.HintSize="561,702" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[Not String.IsNullOrWhiteSpace(Expr)]" DisplayName="If Input Valid" sap:VirtualizedContainerService.HintSize="561,702" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="436,554" sap2010:WorkflowViewState.IdRef="Sequence_14">
+        <Sequence DisplayName="Evaluate String" sap:VirtualizedContainerService.HintSize="436,554" sap2010:WorkflowViewState.IdRef="Sequence_14">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <waa:WolframLanguageScope KernelPath="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,232" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" Kernel="[Kernel]" EnableObjectReferences="{x:Null}" KernelArgs="{x:Null}" StartupSleep="{x:Null}">
+          <waa:WolframLanguageScope KernelPath="{x:Null}" CloseKernelOnFinish="False" DisplayName="Connect To Wolfram" sap:VirtualizedContainerService.HintSize="414,232" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" Kernel="[Kernel]" EnableObjectReferences="{x:Null}" KernelArgs="{x:Null}" StartupSleep="{x:Null}">
             <waa:WolframLanguageScope.Body>
               <ActivityAction x:TypeArguments="w:Application">
                 <ActivityAction.Argument>
@@ -117,7 +117,7 @@
               </ActivityAction>
             </waa:WolframLanguageScope.Body>
           </waa:WolframLanguageScope>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[ExprResult]" TopMost="True" />
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Show Results" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[ExprResult]" TopMost="True" />
           <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="SetToClipboard_1" Text="[ExprResult]" />
         </Sequence>
       </If.Then>

@@ -3,7 +3,7 @@
   "description": "Agent Process Improvement",
   "main": "Main.xaml",
   "dependencies": {
-    "TroyWeb.WolframLanguage.Activities": "[2.2.0]",
+    "TroyWeb.WolframLanguage.Activities": "[2.3.10]",
     "UiPath.Excel.Activities": "[2.6.1]",
     "UiPath.Mail.Activities": "[1.5.0]",
     "UiPath.System.Activities": "[19.5.0]",
@@ -21,6 +21,7 @@
     ]
   },
   "projectType": "Workflow",
+  "expressionLanguage": "VisualBasic",
   "libraryOptions": {
     "includeOriginalXaml": false,
     "privateWorkflows": []

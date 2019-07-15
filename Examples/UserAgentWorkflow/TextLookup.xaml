@@ -1,0 +1,129 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="TextLookup" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:waa="clr-namespace:WolframLanguage.Activities.Activities;assembly=WolframLanguage.Activities" xmlns:waae="clr-namespace:WolframLanguage.Activities.Activities.Evaluate;assembly=WolframLanguage.Activities" xmlns:wn="clr-namespace:Wolfram.NETLink;assembly=Wolfram.NETLink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Kernel" Type="InArgument(wn:IKernelLink)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>645,1532</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>TextLookup_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="42">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Wolfram.NETLink</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>Wolfram.NETLink</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="TextLookup" sap:VirtualizedContainerService.HintSize="605,1412" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="583,1288" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="DecayGraphWL" />
+        <Variable x:TypeArguments="x:String" Name="DecayGraphWL2" />
+        <Variable x:TypeArguments="ui:GenericValue" Name="ImgH" />
+        <Variable x:TypeArguments="ui:GenericValue" Name="ImgW" />
+        <Variable x:TypeArguments="ui:GenericValue" Name="Text" />
+        <Variable x:TypeArguments="ui:GenericValue" Name="Question" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="561,92" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Text:" Options="[{&quot;&quot;}]" Title="Text to grok">
+        <ui:InputDialog.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[Text]</OutArgument>
+        </ui:InputDialog.Result>
+      </ui:InputDialog>
+      <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="561,92" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Question:" Options="[{&quot;&quot;}]" Title="What do you want to know?">
+        <ui:InputDialog.Result>
+          <OutArgument x:TypeArguments="ui:GenericValue">[Question]</OutArgument>
+        </ui:InputDialog.Result>
+      </ui:InputDialog>
+      <ui:ReadTextFile Content="[DecayGraphWL]" DisplayName="Read Text File" FileName="TextLookup.wl" sap:VirtualizedContainerService.HintSize="561,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <If Condition="[Not String.IsNullOrWhiteSpace(Text.ToString) AndAlso Not String.IsNullOrWhiteSpace(Question.ToString)]" sap:VirtualizedContainerService.HintSize="561,801" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="436,653" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="SaveLoc" />
+              <Variable x:TypeArguments="sd:Image" Name="DecayGraphImage" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Replace BuilderPattern="@@TEXT@@" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="Replace_2" Input="[DecayGraphWL]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;@@TEXT@@&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="@@TEXT@@" RegexOption="IgnoreCase" Replacement="[Text.ToString]" Result="[DecayGraphWL]" />
+            <ui:Replace BuilderPattern="@@TEXT@@" sap:VirtualizedContainerService.HintSize="414,59" sap2010:WorkflowViewState.IdRef="Replace_3" Input="[DecayGraphWL]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;@@TEXT@@&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="@@QUESTION@@" RegexOption="IgnoreCase" Replacement="[Question.ToString]" Result="[DecayGraphWL]" />
+            <waa:WolframLanguageScope KernelPath="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,331" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" Kernel="[Kernel]" EnableObjectReferences="{x:Null}" KernelArgs="{x:Null}" StartupSleep="{x:Null}">
+              <waa:WolframLanguageScope.Body>
+                <ActivityAction x:TypeArguments="w:Application">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="w:Application" Name="WolframLanguageScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,245" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="wn:Expr" Name="Result" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <waae:EvaluateExprActivity Expr="{x:Null}" DisplayName="Evaluate Activity" Expression="[DecayGraphWL]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateExprActivity_1" Result="[Result]" />
+                    <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Your Answer" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[Result]" TopMost="True" />
+                  </Sequence>
+                </ActivityAction>
+              </waa:WolframLanguageScope.Body>
+            </waa:WolframLanguageScope>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+  </Sequence>
+</Activity>

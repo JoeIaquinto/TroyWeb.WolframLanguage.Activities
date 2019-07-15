@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="476,951" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:waa="clr-namespace:WolframLanguage.Activities.Activities;assembly=WolframLanguage.Activities" xmlns:waae="clr-namespace:WolframLanguage.Activities.Activities.Evaluate;assembly=WolframLanguage.Activities" xmlns:wn="clr-namespace:Wolfram.NETLink;assembly=Wolfram.NETLink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="476,957" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:waa="clr-namespace:WolframLanguage.Activities.Activities;assembly=WolframLanguage.Activities" xmlns:waae="clr-namespace:WolframLanguage.Activities.Activities.Evaluate;assembly=WolframLanguage.Activities" xmlns:wn="clr-namespace:Wolfram.NETLink;assembly=Wolfram.NETLink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
@@ -48,23 +48,22 @@
       <AssemblyReference>Wolfram.NETLink</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow takes an ExpressionJSON file and imports it into the Wolfram Language for evaluation. Use Export format ExpressionJSON to save wolfram expressions between sessions" sap:VirtualizedContainerService.HintSize="436,831" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow takes an ExpressionJSON file and imports it into the Wolfram Language for evaluation. Use Export format ExpressionJSON to save wolfram expressions between sessions" sap:VirtualizedContainerService.HintSize="436,837" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <waa:WolframLanguageScope Kernel="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,650" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" KernelPath="C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.0\\MathKernel.exe" EnableObjectReferences="False" KernelArgs="[{}]" StartupSleep="250">
+    <waa:WolframLanguageScope Kernel="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,653" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" KernelPath="C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.0\\MathKernel.exe" EnableObjectReferences="False" KernelArgs="[{}]" StartupSleep="250">
       <waa:WolframLanguageScope.Body>
         <ActivityAction x:TypeArguments="w:Application">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="w:Application" Name="WolframLanguageScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,564" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="336,567" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="wn:Expr" Name="JSONExpr" />
-              <Variable x:TypeArguments="x:String" Name="JSONFile" />
               <Variable x:TypeArguments="wn:Expr" Name="expr" />
               <Variable x:TypeArguments="x:String" Name="FilePath" />
             </Sequence.Variables>
@@ -73,7 +72,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SelectFile sap2010:Annotation.AnnotationText="Select an ExpressionJSON file to import to the wolfram language" DisplayName="Select File" Filter="All files (*.*)|*.*" sap:VirtualizedContainerService.HintSize="314,79" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[FilePath]">
+            <ui:SelectFile sap2010:Annotation.AnnotationText="Select an ExpressionJSON file to import to the wolfram language" DisplayName="Select File" Filter="All files (*.*)|*.*" sap:VirtualizedContainerService.HintSize="314,82" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[FilePath]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

@@ -1,1 +1,0 @@
-RelationGraph[DaughterNuclidesQ, verts, Sequence[PlotRangePadding -> .75, ImageSize -> @@WIDTH@@, PlotTheme -> "Scientific"]]
