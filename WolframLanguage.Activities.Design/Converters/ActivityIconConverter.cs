@@ -16,6 +16,7 @@ namespace UiPath.Activities.Presentation.Converters
                 {
                     return null;
                 }
+               
                 Type activityType = (value as ModelItem).ItemType;
                 string resourceName = activityType.Name;
 
@@ -23,19 +24,13 @@ namespace UiPath.Activities.Presentation.Converters
                 {
                     resourceName = resourceName.Split('`')[0];
                 }
+                
                 resourceName += "Icon";
 
                 var iconsSource = new ResourceDictionary { Source = new Uri(parameter as string) };
 
-                var icon = iconsSource[resourceName] as DrawingBrush;
-                if (icon == null)
-                {
-                    icon = Application.Current.Resources[resourceName] as DrawingBrush;
-                }
-                if (icon == null)
-                {
-                    icon = Application.Current.Resources["GenericLeafActivityIcon"] as DrawingBrush;
-                }
+                var icon = (iconsSource[resourceName] as DrawingBrush ?? Application.Current.Resources[resourceName] as DrawingBrush) ??
+                           Application.Current.Resources["GenericLeafActivityIcon"] as DrawingBrush;
 
                 return icon.Drawing;
             }
