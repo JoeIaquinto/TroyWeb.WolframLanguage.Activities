@@ -31,14 +31,12 @@ namespace WolframLanguage.Activities.Activities
         [LocalizedDisplayName(nameof(Resources.ParentScopePathDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopePathDescription))]
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
-        [RequiredArgument]
         [OverloadGroup("NewKernel")]
         public InArgument<string> KernelPath { get; set; }
 
         [LocalizedDisplayName(nameof(Resources.ParentScopeArgsDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopeArgsDescription))]
         [DependsOn(nameof(KernelPath))]
-        [RequiredArgument]
         [LocalizedCategory(nameof(Resources.InputOpenKernel))]
         [OverloadGroup("NewKernel")]
         public InArgument<string[]> KernelArgs { get; set; }
@@ -110,8 +108,8 @@ namespace WolframLanguage.Activities.Activities
             }
             else
             {
-                var kernelPath = KernelPath.Get(context);
-                var kernelArgs = KernelArgs.Get(context);
+                var kernelPath = KernelPath.Get(context) ?? string.Empty;
+                var kernelArgs = KernelArgs.Get(context) ?? new string[0];
                 var startupSleep = StartupSleep.Get(context);
                 var enableObjectReferences = EnableObjectReferences.Get(context);
                 _kernel = new Application(kernelPath, kernelArgs, enableObjectReferences);

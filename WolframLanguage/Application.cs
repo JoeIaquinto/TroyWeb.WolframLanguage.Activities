@@ -35,7 +35,13 @@ namespace WolframLanguage
         // Creates a new Application using the provided credentials
         public Application(string kernelPath, string[] kernelArgs, bool enableObjectReferences)
         {
-            if (string.IsNullOrEmpty(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
+            if (string.IsNullOrWhiteSpace(kernelPath))
+            {
+                kernelPath = GetApplicationPath(@"MathKernel.exe");
+                Console.WriteLine(@"Kernel Path found to be: " + kernelPath);
+                if (string.IsNullOrWhiteSpace(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
+            }
+            
             if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             KernelPath = kernelPath;
             KernelArgs = kernelArgs;
@@ -281,6 +287,31 @@ namespace WolframLanguage
         #endregion
 
         #region Helpers
+        
+        private static string GetApplicationPath(string exeName)
+        {
+            try
+            {
+                var ourKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+                ourKey = ourKey.OpenSubKey(@"Software\Wolfram Research\Installations", false);
+                if (ourKey == null) return string.Empty;
+                foreach (var subKeyName in ourKey.GetSubKeyNames())
+                {
+                    var key = ourKey.OpenSubKey(subKeyName);
+                    var path = key?.GetValue("ExecutablePath").ToString();
+                    if (key != null && (path.ToLower().Contains(@"kernel.exe") || path.ToLower().Contains(@"script.exe")))
+                    {
+                        return path.Substring(0, path.LastIndexOf('\\')) + @"\\" + exeName;
+                    }
+                }
+
+                return string.Empty;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+        }
 
         #endregion
 
