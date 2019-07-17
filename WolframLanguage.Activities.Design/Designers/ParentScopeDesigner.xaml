@@ -18,7 +18,18 @@
     </sap:ActivityDesigner.Resources>
 
     <sap:ActivityDesigner.Icon>
-        <DrawingBrush Stretch="Uniform" Drawing="{Binding Path=ModelItem, Converter={StaticResource ActivityIconConverter}, ConverterParameter=pack://application:\,\,\,/WolframLanguage.Activities.Design;component/themes/icons.xaml}" />
+        <DrawingBrush Viewbox="0,0,16,16" ViewboxUnits="Absolute" Stretch="Uniform">
+            <DrawingBrush.Drawing>
+                <ImageDrawing>
+                    <ImageDrawing.Rect>
+                        <Rect Location="0,0" Size="16,16" ></Rect>
+                    </ImageDrawing.Rect>
+                    <ImageDrawing.ImageSource>
+                        <BitmapImage UriSource="/WolframLanguage.Activities.Design;component/Images/app.ico"  />
+                    </ImageDrawing.ImageSource>
+                </ImageDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
     </sap:ActivityDesigner.Icon>
 
     <local:ActivityDecoratorControl Style="{StaticResource ActivityDecoratorStyle}">
