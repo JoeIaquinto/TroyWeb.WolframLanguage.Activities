@@ -1,5 +1,6 @@
 using System;
 using System.Activities;
+using System.ComponentModel;
 using System.Threading;
 using Wolfram.NETLink;
 using WolframLanguage.Activities.Properties;
@@ -23,6 +24,23 @@ namespace WolframLanguage.Activities.Activities.Evaluate
         [OverloadGroup("ExpressionExpr")]
         [RequiredArgument]
         public InArgument<Expr> Expr { get; set; }
+        
+        [LocalizedDisplayName(nameof(Resources.EvaluateActivityTimeoutDisplayName))]
+        [LocalizedDescription(nameof(Resources.EvaluateActivityTimeoutDescription))]
+        [LocalizedCategory(nameof(Resources.Input))]
+        [DefaultValue(300)]
+        public InArgument<int> Timeout { get; set; }
+
+        #region Overrides of NativeActivity<string>
+
+        protected override void CacheMetadata(NativeActivityMetadata metadata)
+        {
+            base.CacheMetadata(metadata);
+            if (Expr == null && Expression == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Expression)));
+            if (Timeout == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Timeout)));
+        }
+
+        #endregion
 
         protected override void Execute(NativeActivityContext context)
         {
@@ -34,6 +52,8 @@ namespace WolframLanguage.Activities.Activities.Evaluate
                 Thread.Sleep(100);
             }
             
+            expression = Timeout is null || Timeout.Get(context) <= 0 ? expression : Application.ApplyTimeConstraint(expression, Timeout.Get(context));
+
             Result.Set(context, client.EvaluateToInputForm(expression));
         }
     }

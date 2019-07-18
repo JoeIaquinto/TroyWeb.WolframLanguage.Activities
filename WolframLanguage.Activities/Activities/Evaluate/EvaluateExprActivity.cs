@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Activities;
+using System.Activities.Expressions;
+using System.ComponentModel;
+using System.Runtime.Remoting.Lifetime;
 using System.Threading;
 using System.Threading.Tasks;
 using Wolfram.NETLink;
@@ -24,6 +27,12 @@ namespace WolframLanguage.Activities.Activities.Evaluate
         [OverloadGroup("ExpressionStr")]
         [RequiredArgument]
         public InArgument<string> Expression { get; set; }
+        
+        [LocalizedDisplayName(nameof(Resources.EvaluateActivityTimeoutDisplayName))]
+        [LocalizedDescription(nameof(Resources.EvaluateActivityTimeoutDescription))]
+        [LocalizedCategory(nameof(Resources.Input))]
+        [DefaultValue(300)]
+        public InArgument<int> Timeout { get; set; }
 
         [LocalizedDisplayName(nameof(Resources.EvaluateActivityResultDisplayName))]
         [LocalizedDescription(nameof(Resources.EvaluateActivityResultDescription))]
@@ -36,6 +45,7 @@ namespace WolframLanguage.Activities.Activities.Evaluate
             base.CacheMetadata(metadata);
 
             if (Expr == null && Expression == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Expression)));
+            if (Timeout == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Timeout)));
         }
 
         protected override Task<Expr> ExecuteAsync(AsyncCodeActivityContext context, CancellationToken cancellationToken, Application client)
@@ -50,7 +60,21 @@ namespace WolframLanguage.Activities.Activities.Evaluate
                 Thread.Sleep(100);
             }
 
-            return Task.Run(() => expr is null ? client.Evaluate(expression) : client.Evaluate(expr), cancellationToken);
+            if (expr is null) //Using string expression
+            {
+                if (!(Timeout is null) && Timeout.Get(context) > 0) //User indicated we should timeout if taking longer than Timeout secs
+                {
+                    expression = Application.ApplyTimeConstraint(expression, Timeout.Get(context));
+                }
+
+                return Task.Run(() => client.Evaluate(expression), cancellationToken);
+            }
+
+            if (Timeout is null || Timeout.Get(context) <= 0)
+                return Task.Run(() => client.Evaluate(expr), cancellationToken);
+            expr = Application.ApplyTimeConstraint(expr, Timeout.Get(context));
+
+            return Task.Run(() => client.Evaluate(expr), cancellationToken);
         }
 
         protected override void OutputResult(AsyncCodeActivityContext context, Expr result)

@@ -209,6 +209,14 @@
     <value>Evaluate Activity</value>
     <comment>display name</comment>
   </data>
+  <data name="EvaluateActivityTimeoutDescription" xml:space="preserve">
+    <value>Abort evaluation if it takes longer than Timeout seconds. Default to 5 minutes.</value>
+    <comment>description</comment>
+  </data>
+  <data name="EvaluateActivityTimeoutDisplayName" xml:space="preserve">
+    <value>Timeout</value>
+    <comment>display name</comment>
+  </data>
   <data name="EvaluateActivityResultDescription" xml:space="preserve">
     <value>The result of the evaluation.</value>
     <comment>description</comment>

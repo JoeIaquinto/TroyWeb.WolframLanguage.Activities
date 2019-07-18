@@ -1,5 +1,6 @@
 using System;
 using System.Activities;
+using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using Wolfram.NETLink;
@@ -36,11 +37,18 @@ namespace WolframLanguage.Activities.Activities.Evaluate
         [LocalizedCategory(nameof(Resources.Input))]
         [RequiredArgument]
         public InArgument<int> Height { get; set; }
+        
+        [LocalizedDisplayName(nameof(Resources.EvaluateActivityTimeoutDisplayName))]
+        [LocalizedDescription(nameof(Resources.EvaluateActivityTimeoutDescription))]
+        [LocalizedCategory(nameof(Resources.Input))]
+        [DefaultValue(300)]
+        public InArgument<int> Timeout { get; set; }
 
         protected override void CacheMetadata(NativeActivityMetadata metadata)
         {
             base.CacheMetadata(metadata);
             if (Expr == null && Expression == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Expression)));
+            if (Timeout == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Timeout)));
         }
         
         protected override void Execute(NativeActivityContext context)
@@ -63,6 +71,15 @@ namespace WolframLanguage.Activities.Activities.Evaluate
             {
                 Console.WriteLine(Resources.WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___);
                 Thread.Sleep(100);
+            }
+
+            if (expr is null)
+            {
+                expression = Timeout is null || Timeout.Get(context) <= 0 ? expression : Application.ApplyTimeConstraint(expression, Timeout.Get(context));
+            }
+            else
+            {
+                expr = Timeout is null || Timeout.Get(context) <= 0 ? expr : Application.ApplyTimeConstraint(expr, Timeout.Get(context));
             }
 
             Result.Set(context,

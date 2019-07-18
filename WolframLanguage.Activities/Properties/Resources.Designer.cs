@@ -223,6 +223,24 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abort evaluation if it takes longer than Timeout seconds. Default to 5 minutes..
+        /// </summary>
+        public static string EvaluateActivityTimeoutDescription {
+            get {
+                return ResourceManager.GetString("EvaluateActivityTimeoutDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeout.
+        /// </summary>
+        public static string EvaluateActivityTimeoutDisplayName {
+            get {
+                return ResourceManager.GetString("EvaluateActivityTimeoutDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Evaluate mathematica expression to a .NET Image object.
         /// </summary>
         public static string EvaluateToImageActivityDescription {

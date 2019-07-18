@@ -287,6 +287,19 @@ namespace WolframLanguage
         #endregion
 
         #region Helpers
+
+        public static string ApplyTimeConstraint(string expr, int timeout)
+        {
+            if (timeout <= 0) return expr;
+            return @"TimeConstrained[" + expr + @", " + timeout + @"]";
+        }
+
+        public static Expr ApplyTimeConstraint(Expr expr, int timeout)
+        {
+            if (timeout <= 0) return expr;
+            var tExpr = new Expr(ExpressionType.Function, @"TimeConstrained"); 
+            return new Expr(tExpr, expr, timeout);
+        }
         
         private static string GetApplicationPath(string exeName)
         {
