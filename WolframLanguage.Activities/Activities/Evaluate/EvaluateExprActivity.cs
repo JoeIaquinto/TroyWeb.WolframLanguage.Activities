@@ -45,7 +45,6 @@ namespace WolframLanguage.Activities.Activities.Evaluate
             base.CacheMetadata(metadata);
 
             if (Expr == null && Expression == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Expression)));
-            if (Timeout == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Timeout)));
         }
 
         protected override Task<Expr> ExecuteAsync(AsyncCodeActivityContext context, CancellationToken cancellationToken, Application client)

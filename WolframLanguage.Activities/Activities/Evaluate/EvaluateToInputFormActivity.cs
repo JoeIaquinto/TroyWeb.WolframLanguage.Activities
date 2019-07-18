@@ -37,7 +37,6 @@ namespace WolframLanguage.Activities.Activities.Evaluate
         {
             base.CacheMetadata(metadata);
             if (Expr == null && Expression == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Expression)));
-            if (Timeout == null) metadata.AddValidationError(string.Format(Resources.MetadataValidationError, nameof(Timeout)));
         }
 
         #endregion
