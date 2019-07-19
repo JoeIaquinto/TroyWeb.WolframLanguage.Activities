@@ -1,1 +1,0 @@
-Export[ "@@SAVELOC@@" , RelationGraph[DaughterNuclidesQ, verts, Sequence[PlotRangePadding -> .75, PlotTheme -> "Scientific"]]]

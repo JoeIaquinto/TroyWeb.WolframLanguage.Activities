@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>623,1227</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>687,1143</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -82,12 +82,9 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="583,1147" sap2010:WorkflowViewState.IdRef="Sequence_17">
+  <Sequence sap:VirtualizedContainerService.HintSize="647,1023" sap2010:WorkflowViewState.IdRef="Sequence_17">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="DecayGraphWL" />
-      <Variable x:TypeArguments="x:String" Name="DecayGraphWL2" />
-      <Variable x:TypeArguments="ui:GenericValue" Name="ImgH" />
-      <Variable x:TypeArguments="ui:GenericValue" Name="ImgW" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -95,16 +92,15 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="561,92" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Element:" Options="[{&quot;&quot;}]" Title="Get Decay Graph">
+    <ui:InputDialog DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="609,92" sap2010:WorkflowViewState.IdRef="InputDialog_8" IsPassword="False" Label="Element:" Options="[{&quot;&quot;}]" Title="Get Decay Graph">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="ui:GenericValue">[Expr]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:ReadTextFile Content="[DecayGraphWL]" DisplayName="Read Text File" FileName="DecayGraph.wl" sap:VirtualizedContainerService.HintSize="561,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-    <ui:ReadTextFile Content="[DecayGraphWL2]" DisplayName="Read Text File" FileName="DecayGraph2.wl" sap:VirtualizedContainerService.HintSize="561,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
-    <If Condition="[Not String.IsNullOrWhiteSpace(Expr)]" sap:VirtualizedContainerService.HintSize="561,725" sap2010:WorkflowViewState.IdRef="If_4">
+    <ui:ReadTextFile Content="[DecayGraphWL]" DisplayName="Read Text File" FileName="DecayGraph.wl" sap:VirtualizedContainerService.HintSize="609,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+    <If Condition="[Not String.IsNullOrWhiteSpace(Expr)]" sap:VirtualizedContainerService.HintSize="609,700" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="436,577" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence sap:VirtualizedContainerService.HintSize="468,552" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="SaveLoc" />
             <Variable x:TypeArguments="sd:Image" Name="DecayGraphImage" />
@@ -114,23 +110,22 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="414,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[SaveLoc]" />
-          <waa:WolframLanguageScope KernelPath="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="414,423" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_5" Kernel="[Kernel]" EnableObjectReferences="{x:Null}" KernelArgs="{x:Null}" StartupSleep="{x:Null}">
+          <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="430,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[SaveLoc]" />
+          <waa:WolframLanguageScope KernelPath="{x:Null}" CloseKernelOnFinish="False" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="430,398" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_5" Kernel="[Kernel]" EnableObjectReferences="{x:Null}" KernelArgs="{x:Null}" StartupSleep="{x:Null}">
             <waa:WolframLanguageScope.Body>
               <ActivityAction x:TypeArguments="w:Application">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="w:Application" Name="WolframLanguageScope" />
                 </ActivityAction.Argument>
-                <Sequence sap:VirtualizedContainerService.HintSize="336,337" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <Sequence sap:VirtualizedContainerService.HintSize="368,312" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <waae:EvaluateToOutputFormActivity Expr="{x:Null}" DisplayName="Evaluate to Output Form" Expression="[DecayGraphWL]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateToOutputFormActivity_3" Result="[ExprResult]" />
-                  <waae:EvaluateExprActivity Expr="{x:Null}" Result="{x:Null}" DisplayName="Evaluate Activity" Expression="[&quot;verts = ReachableNuclides[{Entity[&quot; + chr(34) + &quot;Isotope&quot; + chr(34) + &quot;, &quot; + chr(34) + Expr.ToString()+ chr(34) + &quot;]}];&quot;]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateExprActivity_1" />
-                  <ui:Replace BuilderPattern="@@SAVELOC@@" DisplayName="Replace SaveLoc" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="Replace_1" Input="[DecayGraphWL2]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;@@SAVELOC@@&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="@@SAVELOC@@" RegexOption="IgnoreCase" Replacement="[SaveLoc + &quot;/&quot; + Expr.ToString + &quot;.jpg&quot;]" Result="[DecayGraphWL2]" />
-                  <waae:EvaluateExprActivity Expr="{x:Null}" Result="{x:Null}" DisplayName="Evaluate Activity" Expression="[DecayGraphWL2]" sap:VirtualizedContainerService.HintSize="314,22" sap2010:WorkflowViewState.IdRef="EvaluateExprActivity_2" />
+                  <ui:Replace BuilderPattern="@@SAVELOC@@" DisplayName="Replace Element" sap:VirtualizedContainerService.HintSize="330,59" sap2010:WorkflowViewState.IdRef="Replace_2" Input="[DecayGraphWL]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;@@SAVELOC@@&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="@@EXPR@@" RegexOption="IgnoreCase" Replacement="[Expr.ToString]" Result="[DecayGraphWL]" />
+                  <ui:Replace BuilderPattern="@@SAVELOC@@" DisplayName="Replace SaveLoc" sap:VirtualizedContainerService.HintSize="330,59" sap2010:WorkflowViewState.IdRef="Replace_1" Input="[DecayGraphWL]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;@@SAVELOC@@&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="@@SAVELOC@@" RegexOption="IgnoreCase" Replacement="[SaveLoc + &quot;/&quot; + Expr.ToString + &quot;.jpg&quot;]" Result="[DecayGraphWL]" />
+                  <waae:EvaluateExprActivity Expr="{x:Null}" Result="{x:Null}" DisplayName="Evaluate Activity" Expression="[DecayGraphWL]" sap:VirtualizedContainerService.HintSize="330,22" sap2010:WorkflowViewState.IdRef="EvaluateExprActivity_1" Timeout="60" />
                 </Sequence>
               </ActivityAction>
             </waa:WolframLanguageScope.Body>

@@ -1,1 +1,1 @@
-ExampleData[{"Geometry3D", "SpaceShuttle"}]
+Export["@@SAVELOC@@",ExampleData[{"Geometry3D","SpaceShuttle"}]]   

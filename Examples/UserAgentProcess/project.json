@@ -1,14 +1,13 @@
 {
-  "name": "Wolfram",
-  "description": "Blank Process",
+  "name": "WolframEvalProcess",
+  "description": "Agent Process Improvement",
   "main": "Main.xaml",
   "dependencies": {
     "TroyWeb.WolframLanguage.Activities": "[2.7.0]",
     "UiPath.Excel.Activities": "[2.6.2]",
     "UiPath.Mail.Activities": "[1.5.1]",
     "UiPath.System.Activities": "[19.7.0]",
-    "UiPath.UIAutomation.Activities": "[19.7.0]",
-    "UiPathTeam.ImageActivities.Activities": "[1.0.0.200]"
+    "UiPath.UIAutomation.Activities": "[19.7.0]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
