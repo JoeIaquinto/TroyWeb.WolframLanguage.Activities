@@ -133,6 +133,10 @@
     <value>Kernel</value>
     <comment>Category</comment>
   </data>
+  <data name="ExpressionScopeCategory" xml:space="preserve">
+    <value>Expression</value>
+    <comment>Category</comment>
+  </data>
   <data name="LowLevelPacketScopeCategory" xml:space="preserve">
     <value>Packet Management</value>
     <comment>Category</comment>

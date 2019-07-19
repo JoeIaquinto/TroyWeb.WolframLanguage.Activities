@@ -55,6 +55,8 @@
     <Compile Include="Activities\Evaluate\EvaluateToImageActivity.cs" />
     <Compile Include="Activities\Evaluate\EvaluateToInputFormActivity.cs" />
     <Compile Include="Activities\Evaluate\EvaluateToOutputFormActivity.cs" />
+    <Compile Include="Activities\Expressions\ApplyExpressionActivity.cs" />
+    <Compile Include="Activities\Expressions\CreateExpressionActivity.cs" />
     <Compile Include="Activities\Kernel\CloseKernelActivity.cs" />
     <Compile Include="Activities\Kernel\OpenKernelActivity.cs" />
     <Compile Include="Activities\Low Level\Get Data\GetActivity.cs" />

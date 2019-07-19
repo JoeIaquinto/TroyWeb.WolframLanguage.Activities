@@ -97,6 +97,15 @@ namespace WolframLanguage.Activities.Design.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expression.
+        /// </summary>
+        public static string ExpressionScopeCategory {
+            get {
+                return ResourceManager.GetString("ExpressionScopeCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kernel.
         /// </summary>
         public static string KernelScopeCategory {

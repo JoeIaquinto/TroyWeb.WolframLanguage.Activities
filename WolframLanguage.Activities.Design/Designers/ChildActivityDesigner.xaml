@@ -13,7 +13,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\Themes\Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <converters:ActivityIconConverter x:Key="ActivityIconConverter" />
         </ResourceDictionary>
     </sap:ActivityDesigner.Resources>
 

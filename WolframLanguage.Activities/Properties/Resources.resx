@@ -249,6 +249,70 @@
     <value>Expression as Expr</value>
     <comment>display name</comment>
   </data>
+  <data name="CreateExpressionActivityDescription" xml:space="preserve">
+    <value>Create a wolfram language expression with the given name and expression type.</value>
+  <comment>description</comment>
+  </data>
+  <data name="CreateExpressionActivityDisplayName" xml:space="preserve">
+    <value>Create Expression</value>
+    <comment>display name</comment>
+  </data>
+  <data name="CreateExpressionActivityNameDescription" xml:space="preserve">
+    <value>The value of the Expression as a string</value>
+    <comment>description</comment>
+  </data>
+  <data name="CreateExpressionActivityNameDisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>display name</comment>
+  </data>
+  <data name="CreateExpressionActivityExpressionTypeDescription" xml:space="preserve">
+    <value>The expression type of the expression to be created.</value>
+  <comment>description</comment>
+  </data>
+  <data name="CreateExpressionActivityExpressionTypeDisplayName" xml:space="preserve">
+    <value>Expression Type</value>
+    <comment>display name</comment>
+  </data>
+  <data name="CreateExpressionActivityResultDescription" xml:space="preserve">
+    <value>The Expr value of Expression Type with the given name.</value>
+    <comment>description</comment>
+  </data>
+  <data name="CreateExpressionActivityResultDisplayName" xml:space="preserve">
+    <value>Result</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ApplyExpressionActivityDescription" xml:space="preserve">
+    <value>Create a wolfram language expression by applying Head to Args</value>
+    <comment>description</comment>
+  </data>
+  <data name="ApplyExpressionActivityDisplayName" xml:space="preserve">
+    <value>Apply Expression</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ApplyExpressionActivityHeadDescription" xml:space="preserve">
+    <value>The head expression to apply to Arguments</value>
+    <comment>description</comment>
+  </data>
+  <data name="ApplyExpressionActivityHeadDisplayName" xml:space="preserve">
+    <value>Head</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ApplyExpressionActivityArgumentsDescription" xml:space="preserve">
+    <value>Arguments to have head applied to</value>
+    <comment>description</comment>
+  </data>
+  <data name="ApplyExpressionActivityArgumentsDisplayName" xml:space="preserve">
+    <value>Arguments</value>
+    <comment>display name</comment>
+  </data>
+  <data name="ApplyExpressionActivityResultDescription" xml:space="preserve">
+    <value>The Expr value of applying Head to Args</value>
+    <comment>description</comment>
+  </data>
+  <data name="ApplyExpressionActivityResultDisplayName" xml:space="preserve">
+    <value>Result</value>
+    <comment>display name</comment>
+  </data>
   <data name="WolframLanguageScope_Execute_Waiting_for_client_to_be_ready___" xml:space="preserve">
     <value>Waiting for client to be ready...</value>
     <comment>Notify that the wolfram language runtime is not ready yet.</comment>

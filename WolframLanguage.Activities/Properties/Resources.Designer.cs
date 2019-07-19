@@ -61,6 +61,78 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arguments to have head applied to.
+        /// </summary>
+        public static string ApplyExpressionActivityArgumentsDescription {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityArgumentsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arguments.
+        /// </summary>
+        public static string ApplyExpressionActivityArgumentsDisplayName {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityArgumentsDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a wolfram language expression by applying Head to Args.
+        /// </summary>
+        public static string ApplyExpressionActivityDescription {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply Expression.
+        /// </summary>
+        public static string ApplyExpressionActivityDisplayName {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The head expression to apply to Arguments.
+        /// </summary>
+        public static string ApplyExpressionActivityHeadDescription {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityHeadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Head.
+        /// </summary>
+        public static string ApplyExpressionActivityHeadDisplayName {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityHeadDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Expr value of applying Head to Args.
+        /// </summary>
+        public static string ApplyExpressionActivityResultDescription {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityResultDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string ApplyExpressionActivityResultDisplayName {
+            get {
+                return ResourceManager.GetString("ApplyExpressionActivityResultDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shuts down a wolfram language kernel..
         /// </summary>
         public static string CloseKernelDescription {
@@ -93,6 +165,78 @@ namespace WolframLanguage.Activities.Properties {
         public static string CloseKernelOnFinishDisplayName {
             get {
                 return ResourceManager.GetString("CloseKernelOnFinishDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a wolfram language expression with the given name and expression type..
+        /// </summary>
+        public static string CreateExpressionActivityDescription {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Expression.
+        /// </summary>
+        public static string CreateExpressionActivityDisplayName {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The expression type of the expression to be created..
+        /// </summary>
+        public static string CreateExpressionActivityExpressionTypeDescription {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityExpressionTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expression Type.
+        /// </summary>
+        public static string CreateExpressionActivityExpressionTypeDisplayName {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityExpressionTypeDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value of the Expression as a string.
+        /// </summary>
+        public static string CreateExpressionActivityNameDescription {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityNameDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string CreateExpressionActivityNameDisplayName {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityNameDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Expr value of Expression Type with the given name..
+        /// </summary>
+        public static string CreateExpressionActivityResultDescription {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityResultDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string CreateExpressionActivityResultDisplayName {
+            get {
+                return ResourceManager.GetString("CreateExpressionActivityResultDisplayName", resourceCulture);
             }
         }
         

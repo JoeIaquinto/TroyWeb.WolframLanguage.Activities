@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using System.IO;
 using Wolfram.NETLink;
@@ -20,13 +20,13 @@ namespace WolframLanguage
         private string KernelPath { get; set; }
 
         private string[] KernelArgs { get; set; }
-        
+
         private bool EnableObjectReferences { get; set; }
 
         private static Dictionary<Type, Func<dynamic>> _switch;
 
         public IKernelLink KernelLink => Kernel;
-        
+
         #endregion
 
 
@@ -41,13 +41,13 @@ namespace WolframLanguage
                 Console.WriteLine(@"Kernel Path found to be: " + kernelPath);
                 if (string.IsNullOrWhiteSpace(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             }
-            
+
             if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
             KernelPath = kernelPath;
             KernelArgs = kernelArgs;
             EnableObjectReferences = enableObjectReferences;
         }
-        
+
         public Application(IKernelLink kernel)
         {
             Kernel = kernel;
@@ -61,7 +61,7 @@ namespace WolframLanguage
         {
             await Task.Run(CreateKernel);
         }
-        
+
         private void CreateKernel()
         {
             try
@@ -74,7 +74,7 @@ namespace WolframLanguage
                 Console.WriteLine(Resources.Application_CreateKernel_Creating_Kernel);
                 Kernel = MathLinkFactory.CreateKernelLink(KernelArgs);
                 Kernel.WaitAndDiscardAnswer();
-                
+
                 SetupTypeDict();
 
                 if (EnableObjectReferences)
@@ -93,7 +93,7 @@ namespace WolframLanguage
                         throw Kernel.LastError;
                     }
                 }
-                
+
                 DoneInitializing = true;
                 Console.WriteLine(Resources.Application_CreateKernel_Kernel_created);
             }
@@ -132,7 +132,7 @@ namespace WolframLanguage
         #endregion
 
         public bool Ready => Kernel != null && DoneInitializing;
-        
+
         public Exception CheckError => Kernel.Error != 0 ? new ApplicationException(Kernel.ErrorMessage) : null;
 
         public Exception LastError => Kernel.LastError;
@@ -173,7 +173,7 @@ namespace WolframLanguage
         }
 
         public Expr PeekExpr() => Kernel.PeekExpr();
-        
+
         public T Evaluate<T>(string expr, Func<T> callback)
         {
             Kernel.Evaluate(expr);
@@ -197,7 +197,7 @@ namespace WolframLanguage
             IfCheckErrorThrow();
             return Kernel.GetExpr();
         }
-        
+
         public Expr Evaluate(Expr expr)
         {
             Kernel.Evaluate(expr);
@@ -244,7 +244,7 @@ namespace WolframLanguage
             }
             else
             {
-                Kernel.PutReference(o, t);   
+                Kernel.PutReference(o, t);
             }
         }
 
@@ -279,7 +279,7 @@ namespace WolframLanguage
         public void PutSize(int i) => Kernel.PutSize(i);
 
         public void PutData(byte[] b) => Kernel.PutData(b);
-        
+
         public void Flush() => Kernel.Flush();
 
         public void NewPacket() => Kernel.NewPacket();
@@ -297,10 +297,10 @@ namespace WolframLanguage
         public static Expr ApplyTimeConstraint(Expr expr, int timeout)
         {
             if (timeout <= 0) return expr;
-            var tExpr = new Expr(ExpressionType.Function, @"TimeConstrained"); 
+            var tExpr = new Expr(ExpressionType.Function, @"TimeConstrained");
             return new Expr(tExpr, expr, timeout);
         }
-        
+
         private static string GetApplicationPath(string exeName)
         {
             try
@@ -329,7 +329,7 @@ namespace WolframLanguage
         #endregion
 
         #region IDisposable Support
-        
+
         private bool _disposedValue; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
@@ -345,13 +345,13 @@ namespace WolframLanguage
 
             _disposedValue = true;
         }
-        
+
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
         }
-       
+
         #endregion
     }
 }
