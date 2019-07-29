@@ -75,7 +75,7 @@ namespace WolframLanguage.Activities.Activities.Kernel
             var kernelArgs = KernelArgs.Get(context);
             var startupSleep = StartupSleep.Get(context);
             var enableObjectReferences = EnableObjectReferences.Get(context);
-            var application = new Application(kernelPath, kernelArgs, enableObjectReferences);
+            var application = new Application(kernelPath, kernelArgs, enableObjectReferences, false);
             
             Task.Run(() => application.Initialization);
             

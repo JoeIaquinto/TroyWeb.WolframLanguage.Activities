@@ -22,6 +22,7 @@ namespace WolframLanguage
         private string[] KernelArgs { get; set; }
 
         private bool EnableObjectReferences { get; set; }
+        private bool CloseOnFinish { get; set; } = true;
 
         private static Dictionary<Type, Func<dynamic>> _switch;
 
@@ -33,7 +34,7 @@ namespace WolframLanguage
         #region Constructors
 
         // Creates a new Application using the provided credentials
-        public Application(string kernelPath, string[] kernelArgs, bool enableObjectReferences)
+        public Application(string kernelPath, string[] kernelArgs, bool enableObjectReferences, bool closeOnFinish)
         {
             if (string.IsNullOrWhiteSpace(kernelPath))
             {
@@ -46,6 +47,7 @@ namespace WolframLanguage
             KernelPath = kernelPath;
             KernelArgs = kernelArgs;
             EnableObjectReferences = enableObjectReferences;
+            CloseOnFinish = closeOnFinish;
         }
 
         public Application(IKernelLink kernel)
@@ -335,7 +337,7 @@ namespace WolframLanguage
         protected virtual void Dispose(bool disposing)
         {
             if (_disposedValue) return;
-            if (disposing)
+            if (disposing && CloseOnFinish)
             {
                 Console.WriteLine(Resources.Application_Dispose_Closing_Kernel_now_);
                 Kernel.Close();

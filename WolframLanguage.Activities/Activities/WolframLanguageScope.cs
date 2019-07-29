@@ -112,7 +112,8 @@ namespace WolframLanguage.Activities.Activities
                 var kernelArgs = KernelArgs.Get(context) ?? new string[0];
                 var startupSleep = StartupSleep.Get(context);
                 var enableObjectReferences = EnableObjectReferences.Get(context);
-                _kernel = new Application(kernelPath, kernelArgs, enableObjectReferences);
+                var closeOnFinish = CloseKernelOnFinish.Get(context);
+                _kernel = new Application(kernelPath, kernelArgs, enableObjectReferences, closeOnFinish);
                 
                 Task.Run(() => _kernel.Initialization);
                 if (Body == null) return;
@@ -136,6 +137,13 @@ namespace WolframLanguage.Activities.Activities
 
         private void OnCompleted(NativeActivityContext context, ActivityInstance completedInstance)
         {
+            if (CloseKernelOnFinish.Get(context))
+            {
+                Kernel.Set(context, null);
+                var app = (Application) context.Properties.Find("Application");
+                app.Dispose();
+            }
+            
             Console.WriteLine(Resources.WolframLanguageScope_OnCompleted_Parent_Scope_complete_);
         }
 
