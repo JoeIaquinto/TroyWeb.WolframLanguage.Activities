@@ -1,6 +1,7 @@
 ﻿using System.Activities.Presentation.Metadata;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using Wolfram.NETLink;
 using WolframLanguage.Activities.Activities;
 using WolframLanguage.Activities.Activities.Evaluate;
 using WolframLanguage.Activities.Activities.Expressions;
@@ -121,6 +122,15 @@ namespace WolframLanguage.Activities.Design
             builder.AddCustomAttributes(typeof(PutFunctionActivity), new HelpKeywordAttribute("https://troyweb.com"));
 
             MetadataStore.AddAttributeTable(builder.CreateTable());
+        }
+    }
+    
+    // Declare dummy register metadata class to force UiPath to load this assembly
+    public class RegisterMetadata : IRegisterMetadata
+    {
+        public void Register()
+        {
+            var force = new Wolfram.NETLink.Expr(ExpressionType.Boolean, "false");
         }
     }
 }

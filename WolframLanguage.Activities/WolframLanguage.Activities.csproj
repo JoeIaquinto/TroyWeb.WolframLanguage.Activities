@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="Wolfram.NETLink">
       <HintPath>..\..\..\..\..\..\Program Files\Wolfram Research\Wolfram Engine\12.0\SystemFiles\Links\NETLink\Wolfram.NETLink.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -96,11 +97,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Wolfram.NETLink.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

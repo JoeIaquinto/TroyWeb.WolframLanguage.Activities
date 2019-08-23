@@ -48,6 +48,7 @@
     <Reference Include="Wolfram.NETLink, Version=1.7.7078.36228, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Wolfram Research\Wolfram Engine\12.0\SystemFiles\Links\NETLink\Wolfram.NETLink.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -112,11 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="WolframLanguage.Activities.Design.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Wolfram.NETLink.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\app.ico">

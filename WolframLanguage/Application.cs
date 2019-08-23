@@ -1,4 +1,5 @@
 using System;
+using System.Activities.Presentation.Metadata;
 using System.Threading.Tasks;
 using System.IO;
 using Wolfram.NETLink;
@@ -355,5 +356,14 @@ namespace WolframLanguage
         }
 
         #endregion
+    }
+    
+    // Declare dummy register metadata class to force UiPath to load this assembly
+    public class RegisterMetadata : IRegisterMetadata
+    {
+        public void Register()
+        {
+            var force = new Wolfram.NETLink.Expr(ExpressionType.Boolean, "false");
+        }
     }
 }

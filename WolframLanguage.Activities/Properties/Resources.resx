@@ -186,7 +186,7 @@
     <comment>display name</comment>
   </data>
   <data name="ParentScopeKernelDescription" xml:space="preserve">
-    <value>An already open IKernelLink object. Will be null if closed on finish.</value>
+    <value>Optional: An already open IKernelLink object. Will be null if closed on finish. will not open a new kernel if a value is provided.</value>
     <comment>description</comment>
   </data>
   <data name="CloseKernelOnFinishDisplayName" xml:space="preserve">
@@ -226,7 +226,7 @@
     <comment>display name</comment>
   </data>
   <data name="EvaluateActivityExpressionDescription" xml:space="preserve">
-    <value>The Wolfram Language expression to evaluate.</value>
+    <value>The Wolfram Language expression to evaluate. Must choose either Expr or String input.</value>
     <comment>description</comment>
   </data>
   <data name="EvaluateActivityExpressionDisplayName" xml:space="preserve">
@@ -234,7 +234,7 @@
     <comment>display name</comment>
   </data>
   <data name="EvaluateActivityExpressionStringDescription" xml:space="preserve">
-    <value>The Wolfram Language expression to evaluate.</value>
+    <value>The Wolfram Language expression to evaluate. Must choose either Expr or String input.</value>
     <comment>description</comment>
   </data>
   <data name="EvaluateActivityExpressionStringDisplayName" xml:space="preserve">
@@ -242,7 +242,7 @@
     <comment>display name</comment>
   </data>
   <data name="EvaluateActivityExprDescription" xml:space="preserve">
-    <value>The Wolfram Language expression to evaluate.</value>
+    <value>The Wolfram Language expression to evaluate. Must choose either Expr or String input.</value>
     <comment>description</comment>
   </data>
   <data name="EvaluateActivityExprDisplayName" xml:space="preserve">
@@ -395,7 +395,7 @@
     <comment>display name</comment>
   </data>
   <data name="EnableObjectReferencesDescription" xml:space="preserve">
-    <value>Enable .NET Object references in the wolfram language kernel. Must be true if importing .NET Objects.</value>
+    <value>Enable .NET Object references in the wolfram language kernel. Must be true if importing .NET Objects to Wolfram.</value>
     <comment>description</comment>
   </data>
 

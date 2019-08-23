@@ -24,20 +24,20 @@ namespace WolframLanguage.Activities.Activities
         [LocalizedDisplayName(nameof(Resources.ParentScopeKernelDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopeKernelDescription))]
         [RequiredArgument]
-        [LocalizedCategory(nameof(Resources.InputKernel))]
+        [LocalizedCategory(nameof(Resources.Input))]
         [OverloadGroup("ExistingKernel")]
         public InOutArgument<IKernelLink> Kernel { get; set; }
         
         [LocalizedDisplayName(nameof(Resources.ParentScopePathDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopePathDescription))]
-        [LocalizedCategory(nameof(Resources.InputOpenKernel))]
+        [LocalizedCategory(nameof(Resources.Input))]
         [OverloadGroup("NewKernel")]
         public InArgument<string> KernelPath { get; set; }
 
         [LocalizedDisplayName(nameof(Resources.ParentScopeArgsDisplayName))]
         [LocalizedDescription(nameof(Resources.ParentScopeArgsDescription))]
         [DependsOn(nameof(KernelPath))]
-        [LocalizedCategory(nameof(Resources.InputOpenKernel))]
+        [LocalizedCategory(nameof(Resources.Input))]
         [OverloadGroup("NewKernel")]
         public InArgument<string[]> KernelArgs { get; set; }
         
@@ -45,13 +45,13 @@ namespace WolframLanguage.Activities.Activities
         [LocalizedDescription(nameof(Resources.ParentScopeStartupSleepDescription))]
         [DefaultValue(typeof(int), @"100")]
         [OverloadGroup("NewKernel")]
-        [LocalizedCategory(nameof(Resources.InputOpenKernel))]
+        [LocalizedCategory(nameof(Resources.Input))]
         [DependsOn(nameof(KernelPath))]
         public InArgument<int> StartupSleep { get; set; }
         
         [LocalizedDisplayName(nameof(Resources.EnableObjectReferencesDisplayName))]
         [LocalizedDescription(nameof(Resources.EnableObjectReferencesDescription))]
-        [LocalizedCategory(nameof(Resources.InputOpenKernel))]
+        [LocalizedCategory(nameof(Resources.Input))]
         [OverloadGroup("NewKernel")]
         [DependsOn(nameof(KernelPath))]
         [DefaultValue(false)]

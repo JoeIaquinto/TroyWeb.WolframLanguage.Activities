@@ -241,7 +241,7 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable .NET Object references in the wolfram language kernel. Must be true if importing .NET Objects..
+        ///   Looks up a localized string similar to Enable .NET Object references in the wolfram language kernel. Must be true if importing .NET Objects to Wolfram..
         /// </summary>
         public static string EnableObjectReferencesDescription {
             get {
@@ -295,7 +295,7 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate..
+        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate. Must choose either Expr or String input..
         /// </summary>
         public static string EvaluateActivityExprDescription {
             get {
@@ -313,7 +313,7 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate..
+        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate. Must choose either Expr or String input..
         /// </summary>
         public static string EvaluateActivityExpressionDescription {
             get {
@@ -331,7 +331,7 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate..
+        ///   Looks up a localized string similar to The Wolfram Language expression to evaluate. Must choose either Expr or String input..
         /// </summary>
         public static string EvaluateActivityExpressionStringDescription {
             get {
@@ -700,7 +700,7 @@ namespace WolframLanguage.Activities.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An already open IKernelLink object. Will be null if closed on finish..
+        ///   Looks up a localized string similar to Optional: An already open IKernelLink object. Will be null if closed on finish. will not open a new kernel if a value is provided..
         /// </summary>
         public static string ParentScopeKernelDescription {
             get {

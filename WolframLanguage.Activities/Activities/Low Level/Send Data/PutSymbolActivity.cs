@@ -7,7 +7,7 @@ namespace WolframLanguage.Activities.Activities.Low_Level.Send_Data
 {
     [LocalizedDisplayName(nameof(Resources.PutSymbolActivityDisplayName))]
     [LocalizedDescription(nameof(Resources.PutSymbolActivityDescription))]
-    public partial class PutSymbolActivity : NativeActivity
+    public class PutSymbolActivity : NativeActivity
     {
         [LocalizedDisplayName(nameof(Resources.PutSymbolActivitySymbolDisplayName))]
         [LocalizedDescription(nameof(Resources.PutSymbolActivitySymbolDescription))]

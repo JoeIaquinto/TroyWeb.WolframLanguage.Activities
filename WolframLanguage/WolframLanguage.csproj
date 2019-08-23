@@ -44,6 +44,7 @@
   </Choose>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xaml" />
@@ -57,6 +58,7 @@
       <HintPath>..\..\..\..\..\..\Program Files\Wolfram Research\Wolfram Engine\12.0\SystemFiles\Links\NETLink\Wolfram.NETLink.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -83,19 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ml32i4.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="ml64i4.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Wolfram.NETLink.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
