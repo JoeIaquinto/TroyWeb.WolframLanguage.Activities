@@ -161,7 +161,7 @@ There are many processes you can use the Wolfram Language, but some basic workfl
 
 ## Benefits
 
-Enables users to perform advanced mathematical analysis, create rich visualisations, and open up the possibilities for deep integration between a symbolic language with immense capabilities and a sophisticated automation framework. Provides full integration to Wolfram to extend UiPath capabilities into many different fields.
+Enables users to perform advanced mathematical analysis, create rich visualizations, and open up the possibilities for deep integration between a symbolic language with immense capabilities and a sophisticated automation framework. Provides full integration to Wolfram to extend UiPath capabilities into many different fields.
 
 ## Dependencies
 
