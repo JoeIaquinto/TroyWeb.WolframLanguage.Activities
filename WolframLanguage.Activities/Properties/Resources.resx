@@ -368,7 +368,7 @@
     <comment>display name</comment>
   </data>
   <data name="EvaluateToImageActivityHeightDescription" xml:space="preserve">
-    <value>The width of the exported .NET Image object</value>
+    <value>The height of the exported .NET Image object</value>
     <comment>description</comment>
   </data>
 

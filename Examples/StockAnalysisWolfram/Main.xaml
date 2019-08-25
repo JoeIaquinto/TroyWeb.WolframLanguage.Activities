@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="807,1711" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:waa="clr-namespace:WolframLanguage.Activities.Activities;assembly=WolframLanguage.Activities" xmlns:waae="clr-namespace:WolframLanguage.Activities.Activities.Evaluate;assembly=WolframLanguage.Activities" xmlns:wn="clr-namespace:Wolfram.NETLink;assembly=Wolfram.NETLink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="827,1591" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:w="clr-namespace:WolframLanguage;assembly=WolframLanguage" xmlns:waa="clr-namespace:WolframLanguage.Activities.Activities;assembly=WolframLanguage.Activities" xmlns:waae="clr-namespace:WolframLanguage.Activities.Activities.Evaluate;assembly=WolframLanguage.Activities" xmlns:wn="clr-namespace:Wolfram.NETLink;assembly=Wolfram.NETLink" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
@@ -50,7 +50,7 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="767,1591" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="807,1491" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="StockWB" />
       <Variable x:TypeArguments="sd:DataTable" Name="StockDT" />
@@ -60,13 +60,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="729,1499" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[StockWB]" WorkbookPath="Stocks.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="765,1399" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[StockWB]" WorkbookPath="Stocks.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="699,1390" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="731,1290" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <Sequence.Variables>
               <Variable x:TypeArguments="wn:IKernelLink" Name="Kernel" />
               <Variable x:TypeArguments="x:String" Default="C:\\Program Files\\Wolfram Research\\Wolfram Engine\\12.0\\MathKernel.exe" Name="KernelPath" />
@@ -76,20 +76,20 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[StockDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="661,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[StockDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="689,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
               </ui:ExcelReadRange.Range>
             </ui:ExcelReadRange>
-            <waa:WolframLanguageScope Kernel="{x:Null}" KernelPath="{x:Null}" CloseKernelOnFinish="True" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="661,1199" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" EnableObjectReferences="False" KernelArgs="[{}]" StartupSleep="100">
+            <waa:WolframLanguageScope Kernel="{x:Null}" KernelPath="{x:Null}" CloseKernelOnFinish="True" DisplayName="Wolfram Language Scope" sap:VirtualizedContainerService.HintSize="689,1099" sap2010:WorkflowViewState.IdRef="WolframLanguageScope_1" EnableObjectReferences="False" KernelArgs="[{}]" StartupSleep="100">
               <waa:WolframLanguageScope.Body>
                 <ActivityAction x:TypeArguments="w:Application">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="w:Application" Name="WolframLanguageScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="631,1113" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="655,1013" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Int32" Name="rowi" />
                     </Sequence.Variables>
@@ -98,7 +98,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="593,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign sap:VirtualizedContainerService.HintSize="613,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[rowi]</OutArgument>
                       </Assign.To>
@@ -106,13 +106,13 @@
                         <InArgument x:TypeArguments="x:Int32">2</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[StockDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="593,921" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                    <ui:ForEachRow CurrentIndex="[rowi]" DataTable="[StockDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="613,821" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="547,774" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="563,674" sap2010:WorkflowViewState.IdRef="Sequence_4">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="StockVal" />
                               <Variable x:TypeArguments="sd1:Image" Name="StockChart" />
@@ -122,29 +122,21 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <waae:EvaluateToOutputFormActivity Expr="{x:Null}" Timeout="{x:Null}" DisplayName="Evaluate to Output Form" Expression="[row.Item(1).ToString + &quot; * FinancialData[&quot; + Chr(34) + row.Item(0).ToString() + chr(34) + &quot;]&quot;]" sap:VirtualizedContainerService.HintSize="509,22" sap2010:WorkflowViewState.IdRef="EvaluateToOutputFormActivity_1" Result="[StockVal]" />
-                            <ui:ExcelWriteCell Cell="[&quot;C&quot;+rowi.ToString()]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="509,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[StockVal]" />
-                            <waae:EvaluateToImageActivity Expr="{x:Null}" Timeout="{x:Null}" DisplayName="Evaluate to Image" Expression="[&quot;RenkoChart[&quot; + chr(34) + row.Item(0).ToString() + chr(34) + &quot;]&quot;]" Height="500" sap:VirtualizedContainerService.HintSize="509,22" sap2010:WorkflowViewState.IdRef="EvaluateToImageActivity_1" Result="[StockChart]" Width="500" />
-                            <If Condition="[StockChart isnot nothing]" sap:VirtualizedContainerService.HintSize="509,331" sap2010:WorkflowViewState.IdRef="If_1">
+                            <waae:EvaluateToOutputFormActivity Expr="{x:Null}" Timeout="{x:Null}" DisplayName="Evaluate to Output Form" Expression="[row.Item(1).ToString + &quot; * FinancialData[&quot; + Chr(34) + row.Item(0).ToString() + chr(34) + &quot;]&quot;]" sap:VirtualizedContainerService.HintSize="521,22" sap2010:WorkflowViewState.IdRef="EvaluateToOutputFormActivity_1" Result="[StockVal]" />
+                            <ui:ExcelWriteCell Cell="[&quot;C&quot;+rowi.ToString()]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="521,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[StockVal]" />
+                            <waae:EvaluateToImageActivity Expr="{x:Null}" Timeout="{x:Null}" DisplayName="Evaluate to Image" Expression="[&quot;RenkoChart[&quot; + chr(34) + row.Item(0).ToString() + chr(34) + &quot;]&quot;]" Height="500" sap:VirtualizedContainerService.HintSize="521,22" sap2010:WorkflowViewState.IdRef="EvaluateToImageActivity_1" Result="[StockChart]" Width="500" />
+                            <If Condition="[StockChart isnot nothing]" sap:VirtualizedContainerService.HintSize="521,331" sap2010:WorkflowViewState.IdRef="If_1">
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="368,184" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,184" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:SaveImage DisplayName="Save Image" FileName="[row.Item(0).ToString() + Date.Today.ToShortDateString + &quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="330,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[StockChart]" />
+                                  <ui:SaveImage DisplayName="Save Image" FileName="[row.Item(0).ToString() + Date.Today.ToShortDateString + &quot;.jpg&quot;]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="SaveImage_1" Image="[StockChart]" />
                                 </Sequence>
                               </If.Then>
                             </If>
-                            <Assign sap:VirtualizedContainerService.HintSize="509,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:Int32">[rowi]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:Int32">[rowi + 1]</InArgument>
-                              </Assign.Value>
-                            </Assign>
                           </Sequence>
                         </ActivityAction>
                       </ui:ForEachRow.Body>
