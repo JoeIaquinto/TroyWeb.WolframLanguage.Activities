@@ -22,7 +22,11 @@ The Wolfram Language has a tremendous range of domains it can interact with, inc
 
 First, ensure you have the Wolfram Language system installed on your machine. This could either be from an existing Mathematica installation or by installing the [Free Wolfram Engine for Developers](https://www.wolfram.com/engine/), a non-production license to allow development on the Wolfram Language with a limited feature set.
 
+The Wolfram .NET Link DLL must be provided to UiPath Studio in order to import this package. [Use the MoveWolframDLL UiPath project that is provided with the GitHub Repository](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master/MoveWolframDLL) in order to copy the Wolfram.NETLink.dll file from your Wolfram Engine installation folder into your UiPath Studio Local App Data folders. This step is required because the Wolfram.NETLink.DLL assembly is not strongly named and it cannot be discovered in the .NET Global Assembly Cache, and Wolfram's license restricts redistribution of the DLL. To accomplish this manually, copy the Wolfram.NETLink.DLL from your Wolfram Installation Path \ Version \ SystemFiles \ Links \ NETLink to each App folder in %LOCALAPPDATA% \ UiPath. This must be done before the package will be able to be imported into your project.
+
 Next, add the TroyWeb.WolframLanguage.Activities package to your project. Drag a Wolfram Language Scope activity into your sequence. The activity will attempt to locate the MathKernel.exe file in your Wolfram Language or Mathematica installation directory. If it is not found, provide this path to the parent scope activity to allow evaluations to be made. [Examples are also available on the project Github](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master/Examples)
+
+*You will not be able to install this package without first installing a Wolfram product which includes MathLink and .NETLink. You will need to move the Wolfram.NETLink DLL to you UIPath LocalAppData environment folder. This can be done manually or use the MoveWolframDLL UiPath process included on the Github Repository.*
 
 ## Examples
 
@@ -167,7 +171,7 @@ Enables users to perform advanced mathematical analysis, create rich visualizati
 
 The Wolfram Engine, available with Mathematica or the Free Wolfram Engine for Developers.
 UiPath
-Newtonsoft.JSON
+Newtonsoft.JSON 10.0.3+
 
 ## Compatibility
 
@@ -175,3 +179,7 @@ All UiPath versions (Tested on 2019.4+)
 All Wolfram Language Versions from V4 and up.
 
 NOTICE: I do not own the Wolfram Engine or any part therof. This was developed using the Free Wolfram Engine™ for Developers. You may not use this in production or for commercial use without purchasing a production wolfram engine license from the Wolfram Foundation.
+
+## Issue Reporting & Contributing
+
+This project uses Github to track open issues and facilitate contributions from the community. If any issues occur please file an issue on the Github Repository. Pull requests are also certainly welcome. 

@@ -5,6 +5,8 @@ using System.IO;
 using Wolfram.NETLink;
 using WolframLanguage.Properties;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 using Microsoft.Win32;
 
 namespace WolframLanguage
@@ -42,6 +44,7 @@ namespace WolframLanguage
                 kernelPath = GetApplicationPath(@"MathKernel.exe");
                 Console.WriteLine(@"Kernel Path found to be: " + kernelPath);
                 if (string.IsNullOrWhiteSpace(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
+                kernelPath += @"\\MathKernel.exe";
             }
 
             if (!File.Exists(kernelPath)) throw new ArgumentOutOfRangeException(nameof(kernelPath), Resources.Application_Application_The_MathKernel_exe_path_you_specified_does_not_exist_);
@@ -83,7 +86,7 @@ namespace WolframLanguage
                 if (EnableObjectReferences)
                 {
                     Console.WriteLine(Resources.Application_CreateKernel_Enabling_Object_References_);
-                    var needNetLinkExpr = new Expr(ExpressionType.Function, @"Needs");
+                    var needNetLinkExpr = new Expr(Wolfram.NETLink.ExpressionType.Function, @"Needs");
                     needNetLinkExpr = new Expr(needNetLinkExpr, @"NETLink`");
                     Kernel.Evaluate(needNetLinkExpr);
                     Kernel.WaitAndDiscardAnswer();
@@ -274,7 +277,7 @@ namespace WolframLanguage
 
         public PacketType WaitForAnswer() => Kernel.WaitForAnswer();
 
-        public void PutNext(ExpressionType t) => Kernel.PutNext(t);
+        public void PutNext(Wolfram.NETLink.ExpressionType t) => Kernel.PutNext(t);
         public void PutArgCount(int i) => Kernel.PutArgCount(i);
 
         public void PutSymbol(string s) => Kernel.PutSymbol(s);
@@ -300,7 +303,7 @@ namespace WolframLanguage
         public static Expr ApplyTimeConstraint(Expr expr, int timeout)
         {
             if (timeout <= 0) return expr;
-            var tExpr = new Expr(ExpressionType.Function, @"TimeConstrained");
+            var tExpr = new Expr(Wolfram.NETLink.ExpressionType.Function, @"TimeConstrained");
             return new Expr(tExpr, expr, timeout);
         }
 
@@ -317,7 +320,7 @@ namespace WolframLanguage
                     var path = key?.GetValue("ExecutablePath").ToString();
                     if (key != null && (path.ToLower().Contains(@"kernel.exe") || path.ToLower().Contains(@"script.exe")))
                     {
-                        return path.Substring(0, path.LastIndexOf('\\')) + @"\\" + exeName;
+                        return path.Substring(0, path.LastIndexOf('\\'));
                     }
                 }
 
@@ -363,7 +366,7 @@ namespace WolframLanguage
     {
         public void Register()
         {
-            var force = new Wolfram.NETLink.Expr(ExpressionType.Boolean, "false");
+            var force = new Wolfram.NETLink.Expr(Wolfram.NETLink.ExpressionType.Boolean, "false");
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Activities;
 using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
-using Wolfram.NETLink;
 
 namespace WolframLanguage.Activities.Activities
 {
