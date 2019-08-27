@@ -20,13 +20,23 @@ The Wolfram Language has a tremendous range of domains it can interact with, inc
 
 ## Setup
 
+__***You will not be able to install this package without first installing a Wolfram product which includes MathLink and .NETLink. You will also need to move the Wolfram.NETLink DLL to you UIPath LocalAppData environment folder. This can be done manually or use the MoveWolframDLL UiPath process included on the Github Repository.***__
+
+### Wolfram Installation
+
 First, ensure you have the Wolfram Language system installed on your machine. This could either be from an existing Mathematica installation or by installing the [Free Wolfram Engine for Developers](https://www.wolfram.com/engine/), a non-production license to allow development on the Wolfram Language with a limited feature set.
 
-The Wolfram .NET Link DLL must be provided to UiPath Studio in order to import this package. [Use the MoveWolframDLL UiPath project that is provided with the GitHub Repository](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master/MoveWolframDLL) in order to copy the Wolfram.NETLink.dll file from your Wolfram Engine installation folder into your UiPath Studio Local App Data folders. This step is required because the Wolfram.NETLink.DLL assembly is not strongly named and it cannot be discovered in the .NET Global Assembly Cache, and Wolfram's license restricts redistribution of the DLL. To accomplish this manually, copy the Wolfram.NETLink.DLL from your Wolfram Installation Path \ Version \ SystemFiles \ Links \ NETLink to each App folder in %LOCALAPPDATA% \ UiPath. This must be done before the package will be able to be imported into your project.
+### Providing Wolfram.NETLink to UiPath
+
+The Wolfram .NET Link DLL must be copied into the UiPath Studio directory in order to import this package. This step is required because the Wolfram.NETLink.DLL assembly is not strongly named and it cannot be discovered in the .NET Global Assembly Cache, and Wolfram's license restricts redistribution of the DLL.
+
+**To accomplish this manually**, copy the `Wolfram.NETLink.DLL` from the `Wolfram Installation Path \ Version \ SystemFiles \ Links \ NETLink` directory to each App folder in `%LOCALAPPDATA% \ UiPath`. This must be done before the package will be able to be imported into your project.
+
+**Alternatively: [Use the MoveWolframDLL UiPath project that is provided with the GitHub Repository](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master/MoveWolframDLL)** in order to copy the Wolfram.NETLink.dll file from your Wolfram Engine installation folder into your UiPath Studio Local App Data folders.
+
+### Installation and use
 
 Next, add the TroyWeb.WolframLanguage.Activities package to your project. Drag a Wolfram Language Scope activity into your sequence. The activity will attempt to locate the MathKernel.exe file in your Wolfram Language or Mathematica installation directory. If it is not found, provide this path to the parent scope activity to allow evaluations to be made. [Examples are also available on the project Github](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master/Examples)
-
-*You will not be able to install this package without first installing a Wolfram product which includes MathLink and .NETLink. You will need to move the Wolfram.NETLink DLL to you UIPath LocalAppData environment folder. This can be done manually or use the MoveWolframDLL UiPath process included on the Github Repository.*
 
 ## Examples
 
