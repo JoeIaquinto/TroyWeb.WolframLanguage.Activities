@@ -5,8 +5,6 @@ using System.IO;
 using Wolfram.NETLink;
 using WolframLanguage.Properties;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Reflection;
 using Microsoft.Win32;
 
 namespace WolframLanguage

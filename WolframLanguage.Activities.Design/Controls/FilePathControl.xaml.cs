@@ -135,8 +135,10 @@ namespace UiPath.Activities.Presentation
             {
                 var workflowRelativePath = GetRelativePath(workspacePath, fileDialog.FileName);
 
-                RoutedEventArgs fileArgs = new FileSelectedRoutedEventArgs(FileSelectedEvent, workflowRelativePath);
-                fileArgs.Source = LoadButton;
+                RoutedEventArgs fileArgs = new FileSelectedRoutedEventArgs(FileSelectedEvent, workflowRelativePath)
+                {
+                    Source = LoadButton
+                };
                 RaiseEvent(fileArgs);
 
                 if (!fileArgs.Handled && PropertyName != null)

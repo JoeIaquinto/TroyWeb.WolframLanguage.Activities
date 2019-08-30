@@ -1,5 +1,4 @@
-﻿using System;
-using System.Activities;
+﻿using System.Activities;
 using Wolfram.NETLink;
 using WolframLanguage.Activities.Properties;
 

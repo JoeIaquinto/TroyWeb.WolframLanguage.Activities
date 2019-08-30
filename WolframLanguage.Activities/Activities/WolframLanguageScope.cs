@@ -89,9 +89,11 @@ namespace WolframLanguage.Activities.Activities
 
         public WolframLanguageScope()
         {
-            Body = new ActivityAction<Application>();
-            Body.Argument = new DelegateInArgument<Application>(ParentContainerPropertyTag);
-            Body.Handler = new Sequence {DisplayName = @"Do"};
+            Body = new ActivityAction<Application>
+            {
+                Argument = new DelegateInArgument<Application>(ParentContainerPropertyTag),
+                Handler = new Sequence { DisplayName = @"Do" }
+            };
         }
 
         #endregion
