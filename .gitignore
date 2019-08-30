@@ -343,3 +343,5 @@ Examples/*/\.screenshots/
 MoveWolframDLL/.local/
 
 README.pdf
+
+*.pdf

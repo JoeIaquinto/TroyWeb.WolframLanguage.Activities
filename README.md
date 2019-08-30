@@ -16,11 +16,11 @@ The user may open a Wolfram Language kernel as a parent scope with evaluations i
 
 ## Use Cases
 
-The Wolfram Language has a tremendous range of domains it can interact with, including machine learning, image processing, natural language processing, scientific data processing, and much more. Examples that are provided with the project include: retrieving stock data and creating charts of historical prices, generating decay graphs of radioactive isotopes, performing queries to the online service Wolfram Alpha, and searching for the textual answer to a user's question in a knowledgebase article. The full documentation for the Wolfram Language is available online [here](https://reference.wolfram.com/language/)
+The Wolfram Language has a tremendous range of domains it can interact with, including machine learning, image processing, natural language processing, scientific data processing, and much more. Examples that are provided with the project include: retrieving stock data and creating charts of historical prices, generating decay graphs of radioactive isotopes, performing queries to the online service Wolfram Alpha, and searching for the textual answer to a user's question in a knowledge base article. The full documentation for the Wolfram Language is available online [here](https://reference.wolfram.com/language/)
 
 ## Setup
 
-__***You will not be able to install this package without first installing a Wolfram product which includes MathLink and .NETLink. You will also need to move the Wolfram.NETLink DLL to you UIPath LocalAppData environment folder. This can be done manually or use the MoveWolframDLL UiPath process included on the Github Repository.***__
+__You will not be able to use this package without first installing a Wolfram Kernel product. This could be Mathematica, The Wolfram Engine, or other Wolfram projects which provide the Wolfram Kernel. The package depends on the Wolfram.NETLink NuGet package, version 1.7.1 or higher. If the Wolfram.NETLink package is unavailable on NuGet, clone the repository for a standalone copy.__
 
 ### Wolfram Installation
 
@@ -28,11 +28,14 @@ First, ensure you have the Wolfram Language system installed on your machine. Th
 
 ### Providing Wolfram.NETLink to UiPath
 
-The Wolfram .NET Link DLL must be copied into the UiPath Studio directory in order to import this package. This step is required because the Wolfram.NETLink.DLL assembly is not strongly named and it cannot be discovered in the .NET Global Assembly Cache, and Wolfram's license restricts redistribution of the DLL.
+The Wolfram .NET Link DLL is a required dependency of this package. It is exposed in the Wolfram.NETLink NuGet Package. A standalone copy of this package is located inside the GitHub repository. 
 
-**To accomplish this manually**, copy the `Wolfram.NETLink.DLL` from the `Wolfram Installation Path \ Version \ SystemFiles \ Links \ NETLink` directory to each App folder in `%LOCALAPPDATA% \ UiPath`. This must be done before the package will be able to be imported into your project.
+This dependency will be automatically restored from the NuGet gallery, however, in case the Wolfram.NETLink package is unavailable, follow these steps to import it to UiPath Studio from a local copy:
 
-**Alternatively: [Use the MoveWolframDLL UiPath project that is provided with the GitHub Repository](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master/MoveWolframDLL)** in order to copy the Wolfram.NETLink.dll file from your Wolfram Engine installation folder into your UiPath Studio Local App Data folders.
+ 1. Clone the [GitHub Repository](https://github.com/JosephIaquinto/TroyWeb.WolframLanguage.Activities/tree/master) of this project to your machine.
+ 2. [Add a "User Defined Package Source" in the Manage Packages menu of UiPath Studio](https://docs.uipath.com/studio/docs/managing-activities-packages#section-adding-custom-feeds). Set this to a top level folder on your machine so other packages may be loaded from this directory.
+ 3. Copy the Wolfram.NETLink .nupkg file from the cloned repository to the folder you defined as a package source.
+ 4. Install the TroyWeb.WolframLanguage package from the UiPath Studio package manager Go! feed. The dependency of the Wolfram.NETLink package will automatically install.
 
 ### Installation and use
 
@@ -40,11 +43,13 @@ Next, add the TroyWeb.WolframLanguage.Activities package to your project. Drag a
 
 ## Examples
 
-The WolframImportJSON example shows how to create and apply expressions, as well as input expressions to the Wolfram system in a more conveinient format.
+The WolframImportJSON example shows how to create and apply expressions, as well as input expressions to the Wolfram system in a more convenient format.
 
 ![ExpressionJSON Flow](Examples/ExpressionJSON.png)
 
 First, the user selects a file that is a Wolfram Language expression exported as ExpressionJSON. Then a Wolfram Language scope is opened and a symbol Expr is created to express the Import function. That Expr is then applied to an array with the selected file path and the format of the input, "ExpressionJSON". The resulting Expr object is then sent to the Wolfram Kernel in the scope to be evaluated and the evaluation result is displayed in a message box.
+
+Other Examples included with the GitHub repository show how to evaluate expressions that contain user input, exporting images, integrating wolfram data analysis/ graphing with Excel, performing calculations with Wolfram during a User Agent Process, and calling WolframScript files.
 
 ## Activities
 
@@ -126,7 +131,7 @@ First, the user selects a file that is a Wolfram Language expression exported as
     * Flush Buffer
       * Push all buffered WSTP packets to the Wolfram Kernel
     * Wait for the next packet
-      * Syncronously wait for a response packet to be received from the Wolfram Kernel
+      * Synchronously wait for a response packet to be received from the Wolfram Kernel
   * Get Data category
     * Get Expression
       * Get the expression at the front of the results queue
@@ -182,14 +187,15 @@ Enables users to perform advanced mathematical analysis, create rich visualizati
 The Wolfram Engine, available with Mathematica or the Free Wolfram Engine for Developers.
 UiPath
 Newtonsoft.JSON 10.0.3+
+Wolfram.NETLink 1.7.1+
 
 ## Compatibility
 
 All UiPath versions (Tested on 2019.4+)
-All Wolfram Language Versions from V4 and up.
+All Wolfram Language Versions from V4 and up. (Tested v12)
 
-NOTICE: I do not own the Wolfram Engine or any part therof. This was developed using the Free Wolfram Engine™ for Developers. You may not use this in production or for commercial use without purchasing a production wolfram engine license from the Wolfram Foundation.
+NOTICE: I do not own the Wolfram Engine or any part thereof. This was developed using the Free Wolfram Engine™ for Developers. You may not use this in production or for commercial use without purchasing a production wolfram engine license from the Wolfram Foundation.
 
 ## Issue Reporting & Contributing
 
-This project uses Github to track open issues and facilitate contributions from the community. If any issues occur please file an issue on the Github Repository. Pull requests are also certainly welcome. 
+This project uses Github to track open issues and facilitate contributions from the community. If any issues occur please file an issue on the Github Repository. Pull requests are also certainly welcome.
