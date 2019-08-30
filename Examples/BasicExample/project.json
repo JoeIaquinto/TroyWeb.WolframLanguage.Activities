@@ -3,7 +3,7 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "TroyWeb.WolframLanguage.Activities": "[2.8.0]",
+    "TroyWeb.WolframLanguage.Activities": "[4.3.0]",
     "UiPath.Excel.Activities": "[2.6.2]",
     "UiPath.Mail.Activities": "[1.5.1]",
     "UiPath.System.Activities": "[19.7.0]",
